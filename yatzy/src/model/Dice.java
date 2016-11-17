@@ -5,8 +5,8 @@ import java.util.Random;
 public class Dice {
 	
 	// State of the dice
-	boolean frozen = false;
-	
+	private boolean frozen = false;
+	private int value = 0;
 	
     public boolean isFrozen (){
     	return frozen;
@@ -16,6 +16,18 @@ public class Dice {
     	frozen = true;
     }
     
+    public void unfreezeDice (){
+    	frozen = false;
+    }
+    
+    public int getValue (){
+    	return value;
+    }
+
+    public void resetDice (){
+    	frozen = false;
+    	value = 0;
+    }
     
 	// Get a Random value between 1 and 6
 
@@ -24,8 +36,8 @@ public class Dice {
         if (frozen == true) throw new IllegalStateException ("Dice is frozen");
     	
     	Random rand = new Random ();    	
-    	int randomNumber = rand.nextInt(6) +1;
-    	return randomNumber;
+    	value = rand.nextInt(6) +1;
+    	return value;
     	
     }
 }

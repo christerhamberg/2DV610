@@ -65,11 +65,11 @@ public class TestDice {
 		Dice dc = new Dice ();
 
 		// default value
-		assertEquals (dc.getValue,0);
+		assertEquals (dc.getValue(),0);
 		
 		int value = dc.rollDice();
 		
-		assertEquals (dc.getValue,value);
+		assertEquals (dc.getValue(),value);
 				
 	}
 
@@ -79,15 +79,15 @@ public class TestDice {
 		// Create a dice
 		Dice dc = new Dice ();
 		
+		dc.rollDice();
+
 		dc.freezeDice();
 		assertTrue (dc.isFrozen());
-
-		dc.rollDice();
-		assertNotSame (dc.getValue,0);
+		assertNotSame (dc.getValue(),0);
 
 		dc.resetDice();
 		assertFalse (dc.isFrozen());
-		assertEquals (dc.getValue,0);
+		assertEquals (dc.getValue(),0);
 		
 	}
 

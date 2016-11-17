@@ -23,7 +23,7 @@ public class TestMain {
 	
 	
 	@Test
-	public void test() {
+	public void testDisplayWelcome() {
 		
 		YatzyMain.displayWelcome();
 		

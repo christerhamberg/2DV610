@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 public class Dice {
 	
 	// State of the dice
@@ -14,4 +16,11 @@ public class Dice {
     	frozen = true;
     }
     
+    public int rollDice (){
+    	
+    	Random rand = new Random ();
+    	int randomNumber = rand.nextInt(6) +1;
+    	return randomNumber;
+    	
+    }
 }

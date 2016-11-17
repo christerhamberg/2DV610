@@ -14,4 +14,12 @@ Rules of the game: http://www.spelregler.org/yatzy-regler/
 --------------------------------------------
 
 Testing a hook for checking that the correct messages can be displayed / trapped by JUNIT
-Method implemented YatzyMain.displayWelcome()
+Method implemented: YatzyMain.displayWelcome()
+
+2. Implementation of a DICE class started 
+---------------------------------------------
+
+Added functions to freeze the dice 
+Methods implemented: isFrozen and freezeDice
+
+

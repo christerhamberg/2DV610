@@ -61,6 +61,33 @@ public class TestDice {
 			else fail ("Value of the dice is to high");
 					
 		}
+		
 	}
 
+	@Test(expected = IllegalStateException.class) 
+	public void testRollDiceException (){
+		
+		int DICE_LOW = 1;
+		int DICE_HIGH = 6;
+		
+		Dice dc = new Dice ();
+		
+		int value = dc.rollDice ();
+		
+		if (value>=DICE_LOW) assertTrue(true);
+		else fail ("Value of the dice is to low");
+		
+		if (value<=DICE_HIGH) assertTrue (true);
+		else fail ("Value of the dice is to high");
+	
+		// FREEZE the dice
+		
+		dc.freezeDice();
+		
+		int value2 = dc.rollDice();
+		
+		// we should not get to this point
+		fail ("Rolling of frozen dice possible, this should cause an exception");
+		
+	}
 }

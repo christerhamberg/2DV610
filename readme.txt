@@ -11,15 +11,27 @@ Rules of the game: http://www.spelregler.org/yatzy-regler/
 
 
 1. Getting started and setting up the basics
---------------------------------------------
+--------------------------------------------------------
 
 Testing a hook for checking that the correct messages can be displayed / trapped by JUNIT
 Method implemented: YatzyMain.displayWelcome()
 
 2. Implementation of a DICE class started 
----------------------------------------------
+--------------------------------------------------------
 
 Added functions to freeze the dice 
 Methods implemented: isFrozen and freezeDice
+
+3. Implementation of the function to roll the dice
+--------------------------------------------------------
+
+Needed function to get a random value between 1 and 6
+Method implemented: rollDice
+
+4. A dice that is in froze state should throw an exception
+--------------------------------------------------------
+
+In a real case I would probably not have implemented it this way but I choose to do it like this 
+to get an Exception assertion into the test case
 
 

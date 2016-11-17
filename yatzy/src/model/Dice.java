@@ -16,9 +16,12 @@ public class Dice {
     	frozen = true;
     }
     
+    
+	// Get a Random value between 1 and 6
+
     public int rollDice (){
-    	
-    	Random rand = new Random ();
+    	    	
+    	Random rand = new Random ();    	
     	int randomNumber = rand.nextInt(6) +1;
     	return randomNumber;
     	

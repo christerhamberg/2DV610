@@ -11,7 +11,7 @@ Rules of the game: http://www.spelregler.org/yatzy-regler/
 
 
 1. Getting started and setting up the basics
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 Testing a hook for checking that the correct messages can be displayed / trapped by JUNIT
 Method implemented: YatzyMain.displayWelcome()
@@ -19,7 +19,7 @@ Method implemented: YatzyMain.displayWelcome()
 
 
 2. Implementation of a DICE class started 
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 Added functions to freeze the dice 
 Methods implemented: isFrozen() and freezeDice()
@@ -27,7 +27,7 @@ Methods implemented: isFrozen() and freezeDice()
 
 
 3. Implementation of the function to roll the dice
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 Needed function to get a random value between 1 and 6
 Method implemented: rollDice()
@@ -35,7 +35,7 @@ Method implemented: rollDice()
 
 
 4. A dice that is in froze state should throw an exception
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 In a real case I would probably not have implemented it this way but I choose to do it like this 
 to get an Exception assertion into the test case
@@ -43,7 +43,7 @@ Method changed: rollDice()
 
 
 5. Adding a few more classes and test case 
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 It should be possible to unfreeze a dice, get the last rolled value 
 (note 0 is a default value if dice has not been rolled) and it should 
@@ -51,8 +51,29 @@ be possible to reset the dice.
 Methods implemented: getValue (), unfreezeDice(), resetDice()
 
 6. The game will also need to be able to read data from the Keyboard
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 The testing can be done in a few ways the better way is probably to hookup
 the System.in function in the same way as System.out was hooked
 Methods implemented: getKbValue ()
+
+7. Needs to add a method to Quit and some better text for selection of Dice
+--------------------------------------------------------------------------------------------------------
+
+
+8. Add a controller
+--------------------------------------------------------------------------------------------------------
+
+
+9. Setup a loop until 'Q' is pressed or game is completed
+--------------------------------------------------------------------------------------------------------
+
+
+10. Add a players class
+--------------------------------------------------------------------------------------------------------
+
+
+11. Create a score class with the different options from the WWW page 
+--------------------------------------------------------------------------------------------------------
+http://www.spelregler.org/yatzy-regler/
+

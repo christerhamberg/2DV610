@@ -24,6 +24,76 @@ public class TestDice {
 	}
 	
 	@Test
+	public void testFreezeUnFreeze() {
+		
+		// Create a dice
+		Dice dc = new Dice ();
+		
+		// Check that it by default is unfrozen
+		assertFalse (dc.isFrozen());
+		
+		// Freeze the dice
+		dc.freezeDice ();
+		
+		// Check that it is frozen
+		assertTrue (dc.isFrozen());
+		
+		// Unfreeze the dice
+		dc.unfreezeDice ();
+				
+		// Check that it by default is unfrozen
+		assertFalse (dc.isFrozen());		
+
+		// Freeze the dice
+		dc.freezeDice ();
+		
+		// Check that it is frozen
+		assertTrue (dc.isFrozen());
+		
+		// Unfreeze the dice
+		dc.unfreezeDice ();
+				
+		// Check that it by default is unfrozen
+		assertFalse (dc.isFrozen());		
+
+	}
+
+	@Test
+	public void testGetValue() {
+		
+		// Create a dice
+		Dice dc = new Dice ();
+
+		// default value
+		assertEquals (dc.getValue,0);
+		
+		int value = dc.rollDice();
+		
+		assertEquals (dc.getValue,value);
+				
+	}
+
+	@Test
+	public void testResetDice() {
+		
+		// Create a dice
+		Dice dc = new Dice ();
+		
+		dc.freezeDice();
+		assertTrue (dc.isFrozen());
+
+		dc.rollDice();
+		assertNotSame (dc.getValue,0);
+
+		dc.resetDice();
+		assertFalse (dc.isFrozen());
+		assertEquals (dc.getValue,0);
+		
+	}
+
+	
+	
+	@Test
 	public void testRollDice (){
 				
 		Dice dc = new Dice ();
@@ -67,6 +137,14 @@ public class TestDice {
 		fail ("Rolling of frozen dice possible, this should cause an exception");
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	private void validateRollDice(int value){
 		

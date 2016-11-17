@@ -20,18 +20,25 @@ Method implemented: YatzyMain.displayWelcome()
 --------------------------------------------------------
 
 Added functions to freeze the dice 
-Methods implemented: isFrozen and freezeDice
+Methods implemented: isFrozen() and freezeDice()
 
 3. Implementation of the function to roll the dice
 --------------------------------------------------------
 
 Needed function to get a random value between 1 and 6
-Method implemented: rollDice
+Method implemented: rollDice()
 
 4. A dice that is in froze state should throw an exception
 --------------------------------------------------------
 
 In a real case I would probably not have implemented it this way but I choose to do it like this 
 to get an Exception assertion into the test case
+Method changed: rollDice()
 
 
+5. Adding a few more classes and test case 
+--------------------------------------------------------
+
+It should be possible to unfreeze a dice, get the last rolled value (note 0 is a default value if dice has not been rolled)
+and it should be possible to reset the dice. 
+Methods implemented: getValue (), unfreezeDice(), resetDice()

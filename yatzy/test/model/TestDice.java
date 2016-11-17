@@ -25,19 +25,11 @@ public class TestDice {
 	
 	@Test
 	public void testRollDice (){
-		
-		int DICE_LOW = 1;
-		int DICE_HIGH = 6;
-		
+				
 		Dice dc = new Dice ();
 		
 		int value = dc.rollDice ();
-		
-		if (value>=DICE_LOW) assertTrue(true);
-		else fail ("Value of the dice is to low");
-		
-		if (value<=DICE_HIGH) assertTrue (true);
-		else fail ("Value of the dice is to high");
+		validateRollDice (value);
 		
 	}
 
@@ -45,21 +37,13 @@ public class TestDice {
 	@Test
 	public void testRollDice10000 (){
 		
-		int DICE_LOW = 1;
-		int DICE_HIGH = 6;
-		
 		Dice dc = new Dice ();
 		
 		for (int loop=0;10000>loop;loop++){
 		
 			int value = dc.rollDice ();
-		
-			if (value>=DICE_LOW) assertTrue(true);
-			else fail ("Value of the dice is to low");
-		
-			if (value<=DICE_HIGH) assertTrue (true);
-			else fail ("Value of the dice is to high");
-					
+			validateRollDice (value);
+						
 		}
 		
 	}
@@ -67,18 +51,11 @@ public class TestDice {
 	@Test(expected = IllegalStateException.class) 
 	public void testRollDiceException (){
 		
-		int DICE_LOW = 1;
-		int DICE_HIGH = 6;
-		
 		Dice dc = new Dice ();
 		
 		int value = dc.rollDice ();
 		
-		if (value>=DICE_LOW) assertTrue(true);
-		else fail ("Value of the dice is to low");
-		
-		if (value<=DICE_HIGH) assertTrue (true);
-		else fail ("Value of the dice is to high");
+		validateRollDice (value);
 	
 		// FREEZE the dice
 		
@@ -90,4 +67,18 @@ public class TestDice {
 		fail ("Rolling of frozen dice possible, this should cause an exception");
 		
 	}
+	
+	private void validateRollDice(int value){
+		
+		int DICE_LOW = 1;
+		int DICE_HIGH = 6;
+		
+		if (value>=DICE_LOW) assertTrue(true);
+		else fail ("Value of the dice is to low");
+		
+		if (value<=DICE_HIGH) assertTrue (true);
+		else fail ("Value of the dice is to high");
+	
+	}
+	
 }

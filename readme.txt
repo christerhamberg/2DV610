@@ -89,7 +89,9 @@ Just a Refatoring step to make the Object oriented model a bit clearer it makes 
 and not vise versa so this step corrects this logical "error".  
 
 
-
+11. Adding methods to the Score Class
+--------------------------------------------------------------------------------------------------------
+Mehod Implemented: getBottomTotalScore()
 
 
 Rules of the game collected from:

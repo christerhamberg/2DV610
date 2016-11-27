@@ -28,7 +28,7 @@ public class TestStateMachine {
 		mc.stepRollState();
 		assertEquals (mc.getRollState(),3);
 		mc.stepRollState();
-		assertEquals (mc.getRollState(),4);
+		assertEquals (mc.getRollState(),0);
 		mc.stepRollState();
 		assertEquals (mc.getRollState(),1);
 

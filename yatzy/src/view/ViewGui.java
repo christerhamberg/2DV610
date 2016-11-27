@@ -222,42 +222,43 @@ public class ViewGui extends JFrame{
 	}
 	
 	protected void rollButtonPressed (){
+				
+		int currentState = state.getRollState ();
 		
 		state.stepRollState();
 		
-		int currentState = state.getRollState ();
-		
-		if (currentState == 0) jbRollButton.setText("New Game");
-		if (currentState == 1){
-			
+		if (currentState == 0){
 			jbRollButton.setText("First Roll");
 			
 			// clear All freeze check boxes.
 			for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
 				jcFreezeDice.get(loopMe).setSelected(false);
+				
+				Dice currentDice = dice.get(loopMe);
+				currentDice.unfreezeDice();
+		
 			}
+			
+		}
+		if (currentState == 1){
+			
+			rollDices ();
+			jbRollButton.setText("Second Roll");
 			
 		}
 		if (currentState == 2){
 			
 			rollDices ();
-			jbRollButton.setText("Second Roll");
+			jbRollButton.setText("Third Roll");
 
 		}
 		if (currentState == 3){
 			
 			rollDices ();
-			jbRollButton.setText("Third Roll");
+			rollButtonPressed();
 			
 		}
-		if (currentState == 4){
-			
-			rollDices ();
-			rollButtonPressed ();
-			
-			// HERE WE SHOULD ALSO END THE GAME
-			
-		}
+		
 	}
 	
 	private void rollDices (){

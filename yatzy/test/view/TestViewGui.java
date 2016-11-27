@@ -147,7 +147,10 @@ public class TestViewGui {
 	@Test
 	public void testCheckBoxUpdate (){
 				
-			
+		ViewGui gui = new ViewGui ("Test1");
+		for (int loopMe = 0;5>loopMe;loopMe++ ){
+			assertNotNull (gui.jcFreezeDice.get(loopMe));
+		}
 		
 	}
 

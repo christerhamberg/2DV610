@@ -3,6 +3,7 @@ package view;
 import static org.junit.Assert.*;
 
 import java.awt.GridBagConstraints;
+
 import javax.swing.JLabel;
 
 import org.junit.Test;
@@ -42,10 +43,25 @@ public class TestViewGui {
 	@Test
 	public void testAddComponent (){
 		
+		// format should be object, xpos, ypos, height, width, and anchor
+		
+		ViewGui gui = new ViewGui ("Test1");
+		gui.setupBoard();
+
+		JLabel jl1 = new JLabel();
+		addComponent (jl1,0,0,1,1,GridBagConstraints.CENTER);
+		
+		JLabel jl2 = new JLabel();
+		addComponent (jl2,1,0,1,1,GridBagConstraints.CENTER);
+		
+		JLabel jl3 = new JLabel();
+		addComponent (jl3,0,1,1,1,GridBagConstraints.CENTER);
+		
 	}
 
 	@Test
 	public void testAddDice (){
+				
 		
 	}
 	

@@ -75,9 +75,20 @@ The Score class should store the current total score, the current "bottom half s
 Lets start implementation of the bottom half of the scoring table
 Methods implemented: getTotalScore(), getBottomTotalScore(), isBonus()
 
+9.Added a FakeScore class 
+--------------------------------------------------------------------------------------------------------
+
+This is just a way of working that I've used before to be able to monipulate the values prior to implementation of
+propper setters or functions that calculates something. It is a way of mocking that we use often when we don't want
+to implement a real set method. The drawback is that it requires the values to be visible hence that is why totalScore
+is changed to protected in this commit
 
 
-xx. Create a score class with the different options from the WWW page 
+
+
+
+
+Rules of the game collected from:
 --------------------------------------------------------------------------------------------------------
 http://www.spelregler.org/yatzy-regler/
 https://sv.wikipedia.org/wiki/Yatzy

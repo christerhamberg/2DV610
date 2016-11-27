@@ -2,7 +2,7 @@ package model;
 
 public class Score extends Player{
 	
-	private int totalScore = 0;
+	protected int totalScore = 0;
 	
 	public Score (String name){
 		super (name);

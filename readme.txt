@@ -98,6 +98,39 @@ Mehod Implemented: getBottomTotalScore()
 --------------------------------------------------------------------------------------------------------
 Mehod Implemented: isBonus()
 
+13. Lets start SWINGING
+--------------------------------------------------------------------------------------------------------
+Originally I was thinking of making a console based game as I'm no big fan of GUIs they just take too much time
+to implement... But on the other hand a console based yatzy game is something that no one will ever play anoymore
+so Lets start adding some GUI components and connect the classes into the game that we have already made.
+
+Methods to be implemented: Class ViewGui
+
+
+14. Add get/set name of two players
+--------------------------------------------------------------------------------------------------------
+
+
+16. Add a quit button
+--------------------------------------------------------------------------------------------------------
+
+
+17. Add the 5 Dices to the board
+--------------------------------------------------------------------------------------------------------
+
+
+18. Add a roll dice button and freeze indicators
+--------------------------------------------------------------------------------------------------------
+
+
+
+19. Add the score and implement the rules functions
+--------------------------------------------------------------------------------------------------------
+
+
+20. Start putting all the things together into a working game
+--------------------------------------------------------------------------------------------------------
+
 
 
 Rules of the game collected from:

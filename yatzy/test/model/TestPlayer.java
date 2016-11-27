@@ -20,7 +20,7 @@ public class TestPlayer {
 		assertEquals (pl2.getName(),"");
 
 		pl2.setName("Kalle Anka");
-		assertEquals (pl1.getName(),"Kalle Anka");
+		assertEquals (pl2.getName(),"Kalle Anka");
 
 	}
 

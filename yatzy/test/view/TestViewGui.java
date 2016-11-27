@@ -96,13 +96,21 @@ public class TestViewGui {
 
 	@Test
 	public void testAddDice (){
-				
+		
+		ViewGui gui = new ViewGui ("Test1");
+		gui.setupBoard();
+		
+		// add a dice
+		gui.addDice (0);
+		
+		// add 4 more dices
+		for (int loopMe = 1;5>=loopMe;loopMe++ ) gui.addDice(loopMe);
 		
 	}
 	
 	@Test
 	public void testUpdateDice (){
-			
+		
 		
 	}
 

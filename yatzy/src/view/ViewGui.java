@@ -3,6 +3,8 @@ package view;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.Icon;
@@ -19,6 +21,7 @@ import model.Dice;
 public class ViewGui extends JFrame{
 	
 	final int DICE_ROW = 2;
+	final int DICE_FREEZE_CHECKBOX_ROW = 3;
 	final int ROLL_BUTTON_ROW = 4;
 	
 	protected JPanel pane;
@@ -28,6 +31,7 @@ public class ViewGui extends JFrame{
 	// Data of the Dices
 	protected ArrayList <Dice> dice = new ArrayList <Dice> ();
 	protected ArrayList <JLabel> jlDice = new ArrayList <JLabel> ();
+	protected ArrayList <JCheckBox> jcFreezeDice = new ArrayList <JCheckBox> ();
 	
 	// Buttons
 	protected JButton jbRollButton = new JButton();
@@ -122,7 +126,35 @@ public class ViewGui extends JFrame{
 		Icon icon = new ImageIcon("source\\dice_6.png");
 	    JLabel label = new JLabel(icon);
 		jlDice.add(label);
-	    addComponent (label,currentDice,DICE_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
+	    addComponent (label,currentDice,DICE_ROW,1,1,GridBagConstraints.FIRST_LINE_START);
+	    
+	    JCheckBox jcFreeze = new JCheckBox ();
+	    jcFreezeDice.add(jcFreeze);
+	    jcFreeze.setToolTipText("Freeze/Unfreeze Dice");
+	    addComponent (jcFreeze,currentDice,DICE_FREEZE_CHECKBOX_ROW,1,1,GridBagConstraints.CENTER);
+	    jcFreeze.addItemListener(new ItemListener() {
+	        public void itemStateChanged(ItemEvent e) {
+	        	
+	        	JCheckBox jc = (JCheckBox) e.getItem();
+	        	
+	        	// Check which dice it is
+	        	
+	        	for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
+	        			        		
+	        		if (jcFreezeDice.get(loopMe).equals(jc) == true){
+	        			
+	        		    Dice currentDice = dice.get(loopMe);
+	        	
+	        		    if (jc.isSelected() == true) currentDice.freezeDice();
+	        		    else currentDice.unfreezeDice();
+	        		
+	        		    break;
+	        			
+	        		}
+        		}
+	        		   
+	        }
+	      });
 		
 	}
 	
@@ -142,7 +174,6 @@ public class ViewGui extends JFrame{
 		currentLabel.setIcon(icon);
 		
 	}
-	
 	
 
 }

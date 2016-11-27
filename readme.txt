@@ -131,6 +131,22 @@ At row 4 in the middle of the icons a New Game / Roll should be added
 Add 2 TextFields where the name of the players are entered
 
 
+17. Add a basic state machine for rolling the dices
+--------------------------------------------------------------------------------------------------------
+Start of the game radomize which player that starts the game
+
+First turn, it should not be possible to freeze any dices
+Secod turn any dice can be forzen
+Third turn no deices 
+
+Roll Dice button should change description
+Swapp turns back and forth
+
+
+18. Add an info field on the top showing what is going on...
+--------------------------------------------------------------------------------------------------------
+
+
 xx. Add a quit button
 --------------------------------------------------------------------------------------------------------
 

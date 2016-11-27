@@ -140,11 +140,11 @@ Secod turn any dice can be forzen
 Third turn no deices 
 
 Roll Dice button should change description
-Swapp turns back and forth
 
 
 18. Add an info field on the top showing what is going on...
 --------------------------------------------------------------------------------------------------------
+Info text 
 
 
 xx. Add a quit button

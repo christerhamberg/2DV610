@@ -201,8 +201,17 @@ public class TestViewGui {
 		assertEquals (""+gui.jbRollButton.getText(),"First Roll");
 
 	}
-
 	
+	@Test
+	public void testInfoText (){
+		
+		ViewGui gui = new ViewGui ("Test1");
+		assertEquals (""+gui.jtInfo.getText(),"XXX1");
+		
+		gui.jtInfo.setText("XXX2");
+		assertEquals (""+gui.jtInfo.getText(),"XXX2");
+
+	}
 	
 }
 

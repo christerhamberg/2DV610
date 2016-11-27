@@ -94,6 +94,12 @@ and not vise versa so this step corrects this logical "error".
 Mehod Implemented: getBottomTotalScore()
 
 
+12. Adding methods to the Score Class
+--------------------------------------------------------------------------------------------------------
+Mehod Implemented: isBonus()
+
+
+
 Rules of the game collected from:
 --------------------------------------------------------------------------------------------------------
 http://www.spelregler.org/yatzy-regler/

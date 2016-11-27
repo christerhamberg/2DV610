@@ -38,6 +38,7 @@ public class TestScore {
 		
 	}
 
+
 }
 
 class FakeScore extends Score{

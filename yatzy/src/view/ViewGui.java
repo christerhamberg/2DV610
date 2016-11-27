@@ -3,17 +3,29 @@ package view;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.Dice;
+
 public class ViewGui extends JFrame{
+	
+	final int DICE_ROW = 2;
 	
 	protected JPanel pane;
 	protected GridBagConstraints c; 
+	
+	
+	// Data of the Dices
+	protected ArrayList <Dice> dice = new ArrayList <Dice> ();
+	protected ArrayList <JLabel> jlDice = new ArrayList <JLabel> ();
 	
 	public ViewGui (String title){
 		
@@ -25,6 +37,10 @@ public class ViewGui extends JFrame{
 	
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    	    
+	    // setup the board
+	    
+	    setupBoard ();
+	    
 	    // Repack all the components
 	    	    
 	    this.pack();
@@ -39,6 +55,8 @@ public class ViewGui extends JFrame{
 		
 		pane = new JPanel(new GridBagLayout());
 		c = new GridBagConstraints();
+		
+		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
 		
 
 		this.add(pane);
@@ -78,6 +96,20 @@ public class ViewGui extends JFrame{
 			pane.add((JTextField) object, c);
 		}	
 			
+	}
+	
+	public void addDice (int currentDice) {
+		
+		// Create a Dice Object
+		Dice d = new Dice ();
+		dice.add(d);
+		
+		// Create a Jabel to store the icon
+		Icon icon = new ImageIcon("source\\dice_6.png");
+	    JLabel label = new JLabel(icon);
+		jlDice.add(label);
+	    addComponent (label,currentDice,DICE_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
+		
 	}
 	
 	

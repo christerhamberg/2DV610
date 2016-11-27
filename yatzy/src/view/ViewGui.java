@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +19,7 @@ import model.Dice;
 public class ViewGui extends JFrame{
 	
 	final int DICE_ROW = 2;
+	final int ROLL_BUTTON_ROW = 4;
 	
 	protected JPanel pane;
 	protected GridBagConstraints c; 
@@ -26,6 +28,9 @@ public class ViewGui extends JFrame{
 	// Data of the Dices
 	protected ArrayList <Dice> dice = new ArrayList <Dice> ();
 	protected ArrayList <JLabel> jlDice = new ArrayList <JLabel> ();
+	
+	// Buttons
+	protected JButton jbRollButton = new JButton();
 	
 	public ViewGui (String title){
 		
@@ -56,8 +61,18 @@ public class ViewGui extends JFrame{
 		pane = new JPanel(new GridBagLayout());
 		c = new GridBagConstraints();
 		
+		// add dices
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
 
+		// add Player 1 name field
+		
+		// add Roll button
+		jbRollButton.setText("New Game");
+		addComponent (jbRollButton,3,ROLL_BUTTON_ROW,1,1,GridBagConstraints.CENTER);
+		
+		// add Player 2 name field
+		
+		
 		this.add(pane);
 		
 	}
@@ -73,7 +88,7 @@ public class ViewGui extends JFrame{
 		c.ipady = 0;
 		
 		c.insets = new Insets(2, 5, 5, 2); // insets BOTTOM, LEFT, RIGHT, TOP	
-		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.anchor = anchor;
 		
 		// c.weightx
 		// c.weighty
@@ -91,8 +106,8 @@ public class ViewGui extends JFrame{
 			pane.add((JTextField) object, c);
 		}	
 		// Object = JCheckBox
-		else if (object.getClass().equals(JTextField.class) == true){
-			pane.add((JTextField) object, c);
+		else if (object.getClass().equals(JCheckBox.class) == true){
+			pane.add((JCheckBox) object, c);
 		}	
 			
 	}

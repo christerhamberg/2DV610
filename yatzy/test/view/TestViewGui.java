@@ -157,6 +157,8 @@ public class TestViewGui {
 		ViewGui gui = new ViewGui ("Test1");
 		assertNotNull (gui.jbRollButton);	
 		
+		assertEquals (gui.jbRollButton.getText(),"New Game");
+		
 	}
 	
 }

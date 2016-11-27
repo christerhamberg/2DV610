@@ -28,6 +28,8 @@ public class TestStateMachine {
 		mc.stepRollState();
 		assertEquals (mc.getRollState(),3);
 		mc.stepRollState();
+		assertEquals (mc.getRollState(),4);
+		mc.stepRollState();
 		assertEquals (mc.getRollState(),1);
 
 	}
@@ -64,6 +66,9 @@ public class TestStateMachine {
 
 		mc.stepRollState();
 		assertTrue (mc.canFreeze());
+		
+		mc.stepRollState();
+		assertFalse (mc.canFreeze());
 		
 		mc.stepRollState();
 		assertFalse (mc.canFreeze());

@@ -221,7 +221,7 @@ public class ViewGui extends JFrame{
 			
 	}
 	
-	private void rollButtonPressed (){
+	protected void rollButtonPressed (){
 		
 		state.stepRollState();
 		
@@ -253,14 +253,9 @@ public class ViewGui extends JFrame{
 		if (currentState == 4){
 			
 			rollDices ();
-			state.stepRollState();
+			rollButtonPressed ();
 			
-			jbRollButton.setText("First Roll");
-
-			// clear All freeze check boxes.
-			for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
-				jcFreezeDice.get(loopMe).setSelected(false);
-			}
+			// HERE WE SHOULD ALSO END THE GAME
 			
 		}
 	}

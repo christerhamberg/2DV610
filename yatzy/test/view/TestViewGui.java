@@ -176,6 +176,33 @@ public class TestViewGui {
 
 	}
 	
+	@Test
+	public void testRollButton1 (){
+		
+		ViewGui gui = new ViewGui ("Test1");
+		assertEquals (gui.state.getRollState(),0);
+			
+		assertEquals (""+gui.jbRollButton.getText(),"New Game");
+		
+		gui.rollButtonPressed();
+		assertEquals (gui.state.getRollState(),1);
+		assertEquals (""+gui.jbRollButton.getText(),"First Roll");
+		
+		gui.rollButtonPressed();
+		assertEquals (gui.state.getRollState(),2);
+		assertEquals (""+gui.jbRollButton.getText(),"Second Roll");
+		
+		gui.rollButtonPressed();
+		assertEquals (gui.state.getRollState(),3);
+		assertEquals (""+gui.jbRollButton.getText(),"Third Roll");
+		
+		gui.rollButtonPressed();
+		assertEquals (gui.state.getRollState(),1);
+		assertEquals (""+gui.jbRollButton.getText(),"First Roll");
+
+	}
+
+	
 	
 }
 

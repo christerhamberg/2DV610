@@ -3,7 +3,6 @@ package view;
 import static org.junit.Assert.*;
 
 import java.awt.GridBagConstraints;
-
 import javax.swing.JLabel;
 
 import org.junit.Test;

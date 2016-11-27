@@ -121,11 +121,14 @@ Needed Methods are: setupBoard ()   A function that sets up all components in th
 
 15. Add a roll dice button and freeze indicators
 --------------------------------------------------------------------------------------------------------
+At row 3 a freeze checkbox will be added to freeze all Icons
+At row 4 in the middle of the icons a New Game / Roll should be added
 
 
-
-xx. Add get/set name of two players
+16. Add get/set name of two players
 --------------------------------------------------------------------------------------------------------
+
+Add 2 TextFields where the name of the players are entered
 
 
 xx. Add a quit button

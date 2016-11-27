@@ -164,6 +164,18 @@ public class TestViewGui {
 		
 	}
 	
+	@Test
+	public void testPlayerTextField (){
+		
+		ViewGui gui = new ViewGui ("Test1");
+		assertNotNull (gui.jtPlayer1);	
+		assertNotNull (gui.jtPlayer2);	
+		
+		assertEquals (gui.jtPlayer1.getTextField(),"Player1");
+		assertEquals (gui.jtPlayer2.getTextField(),"Player2");
+
+	}
+	
 }
 
 

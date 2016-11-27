@@ -66,6 +66,7 @@ Methods implemented: setName (), getName()
 
 
 
+
 xx. Create a score class with the different options from the WWW page 
 --------------------------------------------------------------------------------------------------------
 http://www.spelregler.org/yatzy-regler/

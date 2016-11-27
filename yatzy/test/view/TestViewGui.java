@@ -16,26 +16,28 @@ import view.ViewGui;
 public class TestViewGui {
 	
 	@Test
+	// TEST CASE SHOULD BE REMOVED NOW
 	public void testViewGuiTitle() {
 		
 		ViewGui gui = new ViewGui ("Test1");
 		assertEquals (gui.getTitle(),"Test1");
-		assertNull (gui.pane);
-		assertNull (gui.c);
+		assertNotNull (gui.pane);
+		assertNotNull (gui.c);
 
 		ViewGui gui2 = new ViewGui ("Lets play a game of Yatzy!");
 		assertEquals (gui2.getTitle(),"Lets play a game of Yatzy!");
-		assertNull (gui2.pane);
-		assertNull (gui2.c);
+		assertNotNull (gui2.pane);
+		assertNotNull (gui2.c);
 
 	}
 	
 	@Test
+	// TEST CASE SHOULD BE REMOVED NOW
 	public void testSetupBoard (){
 		
 		ViewGui gui = new ViewGui ("Test1");
-		assertNull (gui.pane);
-		assertNull (gui.c);
+		assertNotNull (gui.pane);
+		assertNotNull (gui.c);
 		gui.setupBoard();
 		assertNotNull (gui.pane);
 		assertNotNull (gui.c);
@@ -99,19 +101,26 @@ public class TestViewGui {
 		
 		ViewGui gui = new ViewGui ("Test1");
 		gui.setupBoard();
+		for (int loopMe = 0;5>loopMe;loopMe++ ){
+			assertNotNull (gui.jlDice.get(loopMe));
+		}
 		
 		// add a dice
 		gui.addDice (0);
-		
+		assertNotNull (gui.jlDice.get(5));
+
 		// add 4 more dices
-		for (int loopMe = 1;5>=loopMe;loopMe++ ) gui.addDice(loopMe);
+		for (int loopMe = 1;5>=loopMe;loopMe++ ){
+			gui.addDice(loopMe);
+			assertNotNull (gui.jlDice.get(6+loopMe));
+		}
 		
 	}
 	
 	@Test
 	public void testUpdateDice (){
 		
-		
+
 	}
 
 }

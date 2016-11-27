@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import org.junit.Test;
 
+import model.Dice;
 import view.ViewGui;
 
 public class TestViewGui {
@@ -120,8 +121,32 @@ public class TestViewGui {
 	@Test
 	public void testUpdateDice (){
 		
+		ViewGui gui = new ViewGui ("Test1");
+		gui.setupBoard();
+				
+		gui.addDice (0);
+		assertNotNull (gui.jlDice.get(0));		
+		
+		JLabel jl = gui.jlDice.get(0);
+		Dice dc = gui.dice.get(0);	
+		
+		int value = dc.rollDice();
+		String iconPath = "source\\dice_" +value +".png";
+		
+		gui.updateDice (jl,dc);
+		assertEquals (""+jl.getIcon(),iconPath);
+		
+		for (int loopMe=0;100>loopMe;loopMe++){
+		    value = dc.rollDice();
+		    iconPath = "source\\dice_" +value +".png";
+		    
+			gui.updateDice (jl,dc);
+			assertEquals (""+jl.getIcon(),iconPath);
+		}
 
 	}
 
 }
+
+
 

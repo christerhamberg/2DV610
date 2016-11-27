@@ -10,10 +10,10 @@ public class TestScore {
 	public void testGetTotalScore() {
 		
 		// START OF THE GAME Score = 0
-		Score sc = new Score ("Kalle");		
+		Score sc = new Score ();		
 		assertEquals (sc.getTotalScore(),0);
 		
-		FakeScore fake1 = new FakeScore ("Kalle");
+		FakeScore fake1 = new FakeScore ();
 		fake1.setTotalScore (4);
 		assertEquals (fake1.getTotalScore(),4);
 		
@@ -23,8 +23,8 @@ public class TestScore {
 
 class FakeScore extends Score{
 
-	public FakeScore(String name) {
-		super(name);
+	public FakeScore() {
+
 	}
 	
 	public void setTotalScore (int value){

@@ -83,6 +83,10 @@ propper setters or functions that calculates something. It is a way of mocking t
 to implement a real set method. The drawback is that it requires the values to be visible hence that is why totalScore
 is changed to protected in this commit
 
+10. Just a Refatoring step
+--------------------------------------------------------------------------------------------------------
+Just a Refatoring step to make the Object oriented model a bit clearer it makes more sense that Player Extends Score 
+and not vise versa so this step corrects this logical "error".  
 
 
 

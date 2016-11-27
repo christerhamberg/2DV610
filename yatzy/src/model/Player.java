@@ -1,6 +1,6 @@
 package model;
 
-public class Player {
+public class Player extends Score{
 	
 	protected String playerName = "";
 	

@@ -57,7 +57,6 @@ public class ViewGui extends JFrame{
 		c = new GridBagConstraints();
 		
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
-		
 
 		this.add(pane);
 		
@@ -109,6 +108,23 @@ public class ViewGui extends JFrame{
 	    JLabel label = new JLabel(icon);
 		jlDice.add(label);
 	    addComponent (label,currentDice,DICE_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
+		
+	}
+	
+	public void updateDice (JLabel currentLabel, Dice currentDice){
+		
+		int value = currentDice.getValue();
+		
+		String iconPath = "";
+		if (value == 1) iconPath = "source\\dice_1.png";
+		else if (value == 2) iconPath = "source\\dice_2.png";
+		else if (value == 3) iconPath = "source\\dice_3.png";
+		else if (value == 4) iconPath = "source\\dice_4.png";
+		else if (value == 5) iconPath = "source\\dice_5.png";
+		else if (value == 6) iconPath = "source\\dice_6.png";
+		
+		Icon icon = new ImageIcon(iconPath);
+		currentLabel.setIcon(icon);
 		
 	}
 	

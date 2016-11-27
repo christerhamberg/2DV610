@@ -57,11 +57,14 @@ public class TestStateMachine {
 		mc.stepRollState();
 		assertTrue (mc.isActive());
 		assertEquals (mc.getRollState(),1);
-		assertTrue (mc.canFreeze());
+		assertFalse (mc.canFreeze());
 
 		mc.stepRollState();
 		assertTrue (mc.canFreeze());
 
+		mc.stepRollState();
+		assertTrue (mc.canFreeze());
+		
 		mc.stepRollState();
 		assertFalse (mc.canFreeze());
 

@@ -39,4 +39,13 @@ public class StateMachine {
 		state = 0;
 	}
 	
+	public boolean canFreeze (){
+		if (active == false) return false;
+		if (state == 0) return false;
+		else if (state == 1) return false;
+		else if (state == 2) return true;
+		else if (state == 3) return true;
+		else return false;
+	}
+	
 }

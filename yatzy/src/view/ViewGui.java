@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 
 import model.Dice;
 import model.Player;
+import model.StateMachine;
 
 public class ViewGui extends JFrame{
 	
@@ -43,7 +44,7 @@ public class ViewGui extends JFrame{
 	protected JTextField jtPlayer2 = new JTextField ("Player 2");
 	
 	// State machine
-	
+	StateMachine state;
 
 	public ViewGui (String title){
 		
@@ -70,6 +71,8 @@ public class ViewGui extends JFrame{
 	}
 	
 	public void setupBoard (){;
+	
+	    state = new StateMachine ();
 		
 		pane = new JPanel(new GridBagLayout());
 		c = new GridBagConstraints();
@@ -148,24 +151,31 @@ public class ViewGui extends JFrame{
 	    jcFreeze.addItemListener(new ItemListener() {
 	        public void itemStateChanged(ItemEvent e) {
 	        	
-	        	JCheckBox jc = (JCheckBox) e.getItem();
+	        	if (state.canFreeze() == false);
 	        	
-	        	// Check which dice it is
-	        	
-	        	for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
-	        			        		
-	        		if (jcFreezeDice.get(loopMe).equals(jc) == true){
-	        			
-	        		    Dice currentDice = dice.get(loopMe);
-	        	
-	        		    if (jc.isSelected() == true) currentDice.freezeDice();
-	        		    else currentDice.unfreezeDice();
+	        	else{
 	        		
-	        		    break;
+	        	
+	        		JCheckBox jc = (JCheckBox) e.getItem();
+	        	
+	        		// Check which dice it is
+	        	
+	        		for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
+	        			        		
+	        			if (jcFreezeDice.get(loopMe).equals(jc) == true){
+	        			
+	        				Dice currentDice = dice.get(loopMe);
+	        	
+	        				if (jc.isSelected() == true) currentDice.freezeDice();
+	        				else currentDice.unfreezeDice();
+	        		
+	        				break;
+	        			}
 	        			
 	        		}
-        		}
-	        		   
+	        		
+		        }
+	   
 	        }
 	      });
 		

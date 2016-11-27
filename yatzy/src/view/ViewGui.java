@@ -24,6 +24,7 @@ import model.StateMachine;
 
 public class ViewGui extends JFrame{
 	
+	final int INFO_ROW = 1;
 	final int DICE_ROW = 2;
 	final int DICE_FREEZE_CHECKBOX_ROW = 3;
 	final int ROLL_BUTTON_ROW = 4;
@@ -47,6 +48,9 @@ public class ViewGui extends JFrame{
 	
 	// State machine
 	StateMachine state;
+	
+	// Info TextField
+	JTextField jtInfo = new JTextField();
 
 	public ViewGui (String title){
 		
@@ -78,6 +82,9 @@ public class ViewGui extends JFrame{
 		
 		pane = new JPanel(new GridBagLayout());
 		c = new GridBagConstraints();
+		
+		jtInfo.setText("Shall we play a Game of Yatzy?");
+		addComponent (jtInfo,1,INFO_ROW,1,5,GridBagConstraints.FIRST_LINE_START);
 		
 		// add dices
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
@@ -280,5 +287,6 @@ public class ViewGui extends JFrame{
 		}
 				
 	}
+
 
 }

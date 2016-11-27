@@ -53,44 +53,44 @@ public class TestViewGui {
 
 		// Labels
 		JLabel jl1 = new JLabel();
-		addComponent (jl1,0,0,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jl1,0,0,1,1,GridBagConstraints.CENTER);
 		
 		JLabel jl2 = new JLabel();
-		addComponent (jl2,1,0,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jl2,1,0,1,1,GridBagConstraints.CENTER);
 		
 		JLabel jl3 = new JLabel();
-		addComponent (jl3,2,0,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jl3,2,0,1,1,GridBagConstraints.CENTER);
 		
 		// Buttons
 		JButton jb1 = new JButton();
-		addComponent (jb1,0,1,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jb1,0,1,1,1,GridBagConstraints.CENTER);
 		
 		JButton jb2 = new JButton();
-		addComponent (jb2,1,1,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jb2,1,1,1,1,GridBagConstraints.CENTER);
 		
 		JButton jb3 = new JButton();
-		addComponent (jb3,2,1,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jb3,2,1,1,1,GridBagConstraints.CENTER);
 		
 		// TextFields
-		JTextFields jt1 = new JTextFields();
-		addComponent (jt1,0,2,1,1,GridBagConstraints.CENTER);
+		JTextField jt1 = new JTextField();
+		gui.addComponent (jt1,0,2,1,1,GridBagConstraints.CENTER);
 		
-		JTextFields jt2 = new JTextFields();
-		addComponent (jt2,1,2,1,1,GridBagConstraints.CENTER);
+		JTextField jt2 = new JTextField();
+		gui.addComponent (jt2,1,2,1,1,GridBagConstraints.CENTER);
 		
-		JTextFields jt3 = new JTextField();
-		addComponent (jt3,2,2,1,1,GridBagConstraints.CENTER);
+		JTextField jt3 = new JTextField();
+		gui.addComponent (jt3,2,2,1,1,GridBagConstraints.CENTER);
 		
 		
 		// CheckBoxes
 		JCheckBox jc1 = new JCheckBox();
-		addComponent (jc1,0,3,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jc1,0,3,1,1,GridBagConstraints.CENTER);
 		
 		JCheckBox jc2 = new JCheckBox();
-		addComponent (jc2,1,3,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jc2,1,3,1,1,GridBagConstraints.CENTER);
 		
 		JCheckBox jc3 = new JCheckBox();
-		addComponent (jc3,2,3,1,1,GridBagConstraints.CENTER);
+		gui.addComponent (jc3,2,3,1,1,GridBagConstraints.CENTER);
 		
 	}
 

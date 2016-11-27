@@ -41,6 +41,9 @@ public class ViewGui extends JFrame{
 	protected ArrayList <Player> player = new ArrayList <Player> ();
 	protected JTextField jtPlayer1 = new JTextField ("Player 1");
 	protected JTextField jtPlayer2 = new JTextField ("Player 2");
+	
+	// State machine
+	
 
 	public ViewGui (String title){
 		

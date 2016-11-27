@@ -18,7 +18,7 @@ public class TestStateMachine {
 	public void testGetStepRollState() {
 		
 		StateMachine mc = new StateMachine();
-		assertFalse (mc.isActive(),false);
+		assertFalse (mc.isActive());
 		assertEquals (mc.getRollState(),0);
 		mc.stepRollState();
 		assertEquals (mc.getRollState(),1);

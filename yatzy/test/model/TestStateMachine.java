@@ -47,5 +47,30 @@ public class TestStateMachine {
 
 	}
 	
+	@Test
+	public void testCanFreeze() {
+
+		StateMachine mc = new StateMachine();
+		assertFalse (mc.isActive());
+		assertFalse (mc.canFreeze());
+
+		mc.stepRollState();
+		assertTrue (mc.isActive());
+		assertEquals (mc.getRollState(),1);
+		assertTrue (mc.canFreeze());
+
+		mc.stepRollState();
+		assertTrue (mc.canFreeze());
+
+		mc.stepRollState();
+		assertFalse (mc.canFreeze());
+
+		mc.resetStates();
+		assertFalse (mc.isActive());
+		assertEquals (mc.getRollState(),0);
+		assertFalse (mc.canFreeze());
+
+	}
+	
 	
 }

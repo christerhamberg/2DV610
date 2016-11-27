@@ -64,6 +64,16 @@ It should only store the name of the player
 It will then be extended with a score class that handles counting of the scores for the player
 Methods implemented: setName (), getName()
 
+8. Score
+--------------------------------------------------------------------------------------------------------
+
+First part of the implementation is to handle the bottom of the scoring card
+And just for fun I will probably make a rule class and connect that to an interface then it will be easy to extend the 
+set of rules
+
+The Score class should store the current total score, the current "bottom half score" and bonus
+Lets start implementation of the bottom half of the scoring table
+Methods implemented: getTotalScore(), getBottomTotalScore(), isBonus()
 
 
 

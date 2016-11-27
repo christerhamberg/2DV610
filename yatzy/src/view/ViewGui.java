@@ -3,6 +3,8 @@ package view;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -88,6 +90,8 @@ public class ViewGui extends JFrame{
 		// add Roll button
 		jbRollButton.setText("New Game");
 		addComponent (jbRollButton,3,ROLL_BUTTON_ROW,1,1,GridBagConstraints.CENTER);
+		addRollButton ();
+		
 		
 		// add Player 2 name field
 		addComponent (jtPlayer2,4,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
@@ -150,14 +154,14 @@ public class ViewGui extends JFrame{
 	    addComponent (jcFreeze,currentDice,DICE_FREEZE_CHECKBOX_ROW,1,1,GridBagConstraints.CENTER);
 	    jcFreeze.addItemListener(new ItemListener() {
 	        public void itemStateChanged(ItemEvent e) {
-	        	
-	        	if (state.canFreeze() == false);
-	        	
+
+	        	JCheckBox jc = (JCheckBox) e.getItem();
+
+	        	if (state.canFreeze() == false){
+	        		jc.setSelected(false);
+	        	}
 	        	else{
-	        		
-	        	
-	        		JCheckBox jc = (JCheckBox) e.getItem();
-	        	
+	        			        	
 	        		// Check which dice it is
 	        	
 	        		for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
@@ -205,6 +209,80 @@ public class ViewGui extends JFrame{
 		player.add (pl);
 		pl.setName(playerName);
 		
+	}
+	
+	private void addRollButton (){
+		
+		jbRollButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    rollButtonPressed();
+			  } 
+			} );
+			
+	}
+	
+	private void rollButtonPressed (){
+		
+		state.stepRollState();
+		
+		int currentState = state.getRollState ();
+		
+		if (currentState == 0) jbRollButton.setText("New Game");
+		if (currentState == 1){
+			
+			jbRollButton.setText("First Roll");
+			
+			// clear All freeze check boxes.
+			for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
+				jcFreezeDice.get(loopMe).setSelected(false);
+			}
+			
+		}
+		if (currentState == 2){
+			
+			rollDices ();
+			jbRollButton.setText("Second Roll");
+
+		}
+		if (currentState == 3){
+			
+			rollDices ();
+			jbRollButton.setText("Third Roll");
+			
+		}
+		if (currentState == 4){
+			
+			rollDices ();
+			state.stepRollState();
+			
+			jbRollButton.setText("First Roll");
+
+			// clear All freeze check boxes.
+			for (int loopMe=0;jcFreezeDice.size()>loopMe;loopMe++){
+				jcFreezeDice.get(loopMe).setSelected(false);
+			}
+			
+		}
+	}
+	
+	private void rollDices (){
+				
+		for (int loopMe=0;5>loopMe;loopMe++){
+			
+			JCheckBox currentCheckBoxStatus = jcFreezeDice.get(loopMe);
+			
+			if (currentCheckBoxStatus.isSelected()==false){
+				
+				Dice currentDice = dice.get(loopMe);
+				currentDice.rollDice();
+				JLabel currentLabel = jlDice.get(loopMe);
+				
+				updateDice (currentLabel,currentDice);
+
+			}
+						
+		}
+				
 	}
 
 }

@@ -3,11 +3,12 @@ package model;
 public class StateMachine {
 	
 	// States 0 = New Game / Game finalized
-	//        1 = Roll dice first time
-	//        2 = Roll dice second time
-	//        3 = Roll dice third time
-	
-	final int MAX_STATE = 3;
+	//        1 = Start Roll dice first time
+	//        2 = Rolled dice first time
+	//        3 = Rolled dice second time
+	//        4 = Rolled dice third time
+
+	final int MAX_STATE = 4;
 	
 	private boolean active = false;
 	private int state = 0;
@@ -45,6 +46,7 @@ public class StateMachine {
 		else if (state == 1) return false;
 		else if (state == 2) return true;
 		else if (state == 3) return true;
+		else if (state == 4) return false;
 		else return false;
 	}
 	

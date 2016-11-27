@@ -118,10 +118,8 @@ Needed Methods are: setupBoard ()   A function that sets up all components in th
                     addDice ()      Adds the dice (with an icon) DEFAULT = 6
                     updateDice ()   Changes the dice value (needed when roll is implemented)
 
-                    
 
-
-xx. Add a roll dice button and freeze indicators
+15. Add a roll dice button and freeze indicators
 --------------------------------------------------------------------------------------------------------
 
 

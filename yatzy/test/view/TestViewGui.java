@@ -52,7 +52,6 @@ public class TestViewGui {
 		// format should be object, xpos, ypos, height, width, and anchor
 		
 		ViewGui gui = new ViewGui ("Test1");
-		gui.setupBoard();
 
 		// Labels
 		JLabel jl1 = new JLabel();
@@ -101,7 +100,7 @@ public class TestViewGui {
 	public void testAddDice (){
 		
 		ViewGui gui = new ViewGui ("Test1");
-		gui.setupBoard();
+
 		for (int loopMe = 0;5>loopMe;loopMe++ ){
 			assertNotNull (gui.jlDice.get(loopMe));
 		}
@@ -113,7 +112,7 @@ public class TestViewGui {
 		// add 4 more dices
 		for (int loopMe = 1;5>=loopMe;loopMe++ ){
 			gui.addDice(loopMe);
-			assertNotNull (gui.jlDice.get(6+loopMe));
+			assertNotNull (gui.jlDice.get(5+loopMe));
 		}
 		
 	}
@@ -122,7 +121,6 @@ public class TestViewGui {
 	public void testUpdateDice (){
 		
 		ViewGui gui = new ViewGui ("Test1");
-		gui.setupBoard();
 				
 		gui.addDice (0);
 		assertNotNull (gui.jlDice.get(0));		
@@ -145,7 +143,22 @@ public class TestViewGui {
 		}
 
 	}
+	
+	@Test
+	public void testCheckBoxUpdate (){
+				
+			
+		
+	}
 
+	@Test
+	public void testRollButton (){
+		
+		ViewGui gui = new ViewGui ("Test1");
+		assertNotNull (gui.jbRollButton);	
+		
+	}
+	
 }
 
 

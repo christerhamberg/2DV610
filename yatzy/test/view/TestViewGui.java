@@ -4,7 +4,10 @@ import static org.junit.Assert.*;
 
 import java.awt.GridBagConstraints;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 import org.junit.Test;
 
@@ -48,6 +51,7 @@ public class TestViewGui {
 		ViewGui gui = new ViewGui ("Test1");
 		gui.setupBoard();
 
+		// Labels
 		JLabel jl1 = new JLabel();
 		addComponent (jl1,0,0,1,1,GridBagConstraints.CENTER);
 		
@@ -55,7 +59,38 @@ public class TestViewGui {
 		addComponent (jl2,1,0,1,1,GridBagConstraints.CENTER);
 		
 		JLabel jl3 = new JLabel();
-		addComponent (jl3,0,1,1,1,GridBagConstraints.CENTER);
+		addComponent (jl3,2,0,1,1,GridBagConstraints.CENTER);
+		
+		// Buttons
+		JButton jb1 = new JButton();
+		addComponent (jb1,0,1,1,1,GridBagConstraints.CENTER);
+		
+		JButton jb2 = new JButton();
+		addComponent (jb2,1,1,1,1,GridBagConstraints.CENTER);
+		
+		JButton jb3 = new JButton();
+		addComponent (jb3,2,1,1,1,GridBagConstraints.CENTER);
+		
+		// TextFields
+		JTextFields jt1 = new JTextFields();
+		addComponent (jt1,0,2,1,1,GridBagConstraints.CENTER);
+		
+		JTextFields jt2 = new JTextFields();
+		addComponent (jt2,1,2,1,1,GridBagConstraints.CENTER);
+		
+		JTextFields jt3 = new JTextField();
+		addComponent (jt3,2,2,1,1,GridBagConstraints.CENTER);
+		
+		
+		// CheckBoxes
+		JCheckBox jc1 = new JCheckBox();
+		addComponent (jc1,0,3,1,1,GridBagConstraints.CENTER);
+		
+		JCheckBox jc2 = new JCheckBox();
+		addComponent (jc2,1,3,1,1,GridBagConstraints.CENTER);
+		
+		JCheckBox jc3 = new JCheckBox();
+		addComponent (jc3,2,3,1,1,GridBagConstraints.CENTER);
 		
 	}
 

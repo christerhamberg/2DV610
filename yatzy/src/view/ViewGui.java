@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Dice;
+import model.Player;
 
 public class ViewGui extends JFrame{
 	
@@ -37,6 +38,7 @@ public class ViewGui extends JFrame{
 	protected JButton jbRollButton = new JButton();
 	
 	// Players
+	protected ArrayList <Player> player = new ArrayList <Player> ();
 	protected JTextField jtPlayer1 = new JTextField ("Player 1");
 	protected JTextField jtPlayer2 = new JTextField ("Player 2");
 
@@ -74,6 +76,8 @@ public class ViewGui extends JFrame{
 
 		// add Player 1 name field
 		addComponent (jtPlayer1,1,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
+		addPlayer ("Player 1");
+		
 		
 		// add Roll button
 		jbRollButton.setText("New Game");
@@ -81,7 +85,8 @@ public class ViewGui extends JFrame{
 		
 		// add Player 2 name field
 		addComponent (jtPlayer2,4,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
-		
+		addPlayer ("Player 2");
+
 		this.add(pane);
 		
 	}
@@ -180,5 +185,13 @@ public class ViewGui extends JFrame{
 		
 	}
 	
+	private void addPlayer (String playerName){
+		
+		Player pl = new Player ("");
+		
+		player.add (pl);
+		pl.setName(playerName);
+		
+	}
 
 }

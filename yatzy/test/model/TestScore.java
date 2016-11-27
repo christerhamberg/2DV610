@@ -46,14 +46,14 @@ public class TestScore {
 		assertFalse (sc.isBonus());
 		
 		FakeScore fake1 = new FakeScore ();
-		fake1.setBottomTotalScore (49);
-		assertFalse (sc.isBonus());
+		fake1.setBottomTotalScore (62);
+		assertFalse (fake1.isBonus());
 		
-		fake1.setBottomTotalScore (50);
-		assertTrue (sc.isBonus());
+		fake1.setBottomTotalScore (63);
+		assertTrue (fake1.isBonus());
 		
-		fake1.setBottomTotalScore (51);
-		assertTrue (sc.isBonus());
+		fake1.setBottomTotalScore (64);
+		assertTrue (fake1.isBonus());
 		
 	}
 
@@ -73,5 +73,6 @@ class FakeScore extends Score{
 	public void setBottomTotalScore (int value){
 		totalBottomScore = value;
 	}
+	
 	
 }

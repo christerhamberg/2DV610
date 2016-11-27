@@ -5,6 +5,8 @@ public class Score{
 	protected int totalScore = 0;
 	protected int totalBottomScore = 0;
 	
+	final int BONUS = 63;
+	
 	public Score (){
 
 	}
@@ -15,6 +17,13 @@ public class Score{
 	
 	public int getTotalBottomScore (){
 		return totalBottomScore;
+	}
+	
+	public boolean isBonus (){
+		
+		if (totalBottomScore>=BONUS) return true;
+		else return false;
+		
 	}
 
 }

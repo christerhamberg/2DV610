@@ -19,6 +19,8 @@ public class StateMachine {
 
 	public void stepRollState (){
 		
+		active = true;
+		
 		if (state == MAX_STATE) state = 1;
 		else state++;
 		
@@ -30,6 +32,11 @@ public class StateMachine {
 
 	public boolean isActive(){
 		return active;
+	}
+	
+	public void resetStates (){
+		active = false;
+		state = 0;
 	}
 	
 }

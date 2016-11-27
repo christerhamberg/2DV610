@@ -171,8 +171,8 @@ public class TestViewGui {
 		assertNotNull (gui.jtPlayer1);	
 		assertNotNull (gui.jtPlayer2);	
 		
-		assertEquals (gui.jtPlayer1.getTextField(),"Player1");
-		assertEquals (gui.jtPlayer2.getTextField(),"Player2");
+		assertEquals (""+gui.jtPlayer1.getText(),"Player 1");
+		assertEquals (""+gui.jtPlayer2.getText(),"Player 2");
 
 	}
 	

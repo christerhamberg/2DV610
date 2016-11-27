@@ -36,6 +36,10 @@ public class ViewGui extends JFrame{
 	// Buttons
 	protected JButton jbRollButton = new JButton();
 	
+	// Players
+	protected JTextField jtPlayer1 = new JTextField ("Player 1");
+	protected JTextField jtPlayer2 = new JTextField ("Player 2");
+
 	public ViewGui (String title){
 		
 		// Set title
@@ -69,13 +73,14 @@ public class ViewGui extends JFrame{
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
 
 		// add Player 1 name field
+		addComponent (jtPlayer1,1,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
 		
 		// add Roll button
 		jbRollButton.setText("New Game");
 		addComponent (jbRollButton,3,ROLL_BUTTON_ROW,1,1,GridBagConstraints.CENTER);
 		
 		// add Player 2 name field
-		
+		addComponent (jtPlayer2,4,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
 		
 		this.add(pane);
 		

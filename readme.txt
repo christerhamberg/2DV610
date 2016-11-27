@@ -106,29 +106,44 @@ so Lets start adding some GUI components and connect the classes into the game t
 
 Methods to be implemented: Class ViewGui
 
+14. Add the 5 Dices to the board
+--------------------------------------------------------------------------------------------------------
+Lets add them now as I'd like to have them on the top and I'll use a GridBagLayout (I h#¤%te developing guis...)
+The Dices should be shown as pictures hence I'll add a few GIFs into the model and by default the '6' will be shown
 
-14. Add get/set name of two players
+Needed Methods are: setupBoard ()   A function that sets up all components in the end. Added already now as
+                                    I will use it to initialize the JPane and BrigBag layout
+
+                    addComponent () Adds a component in a GridBag layout
+                    addDice ()      Adds the dice (with an icon) DEFAULT = 6
+                    updateDice ()   Changes the dice value (needed when roll is implemented)
+
+                    
+
+
+xx. Add a roll dice button and freeze indicators
 --------------------------------------------------------------------------------------------------------
 
 
-16. Add a quit button
+
+xx. Add get/set name of two players
 --------------------------------------------------------------------------------------------------------
 
 
-17. Add the 5 Dices to the board
---------------------------------------------------------------------------------------------------------
-
-
-18. Add a roll dice button and freeze indicators
+xx. Add a quit button
 --------------------------------------------------------------------------------------------------------
 
 
 
-19. Add the score and implement the rules functions
+
+
+
+
+xx. Add the score and implement the rules functions
 --------------------------------------------------------------------------------------------------------
 
 
-20. Start putting all the things together into a working game
+xx. Start putting all the things together into a working game
 --------------------------------------------------------------------------------------------------------
 
 

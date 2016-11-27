@@ -37,6 +37,25 @@ public class TestScore {
 		assertEquals (fake1.getTotalBottomScore(),12);
 		
 	}
+	
+	@Test
+	public void testIsBonus() {
+		
+		// START OF THE GAME Score = 0
+		Score sc = new Score ();		
+		assertFalse (sc.isBonus());
+		
+		FakeScore fake1 = new FakeScore ();
+		fake1.setBottomTotalScore (49);
+		assertFalse (sc.isBonus());
+		
+		fake1.setBottomTotalScore (50);
+		assertTrue (sc.isBonus());
+		
+		fake1.setBottomTotalScore (51);
+		assertTrue (sc.isBonus());
+		
+	}
 
 
 }

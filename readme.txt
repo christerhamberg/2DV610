@@ -57,23 +57,16 @@ The testing can be done in a few ways the better way is probably to hookup
 the System.in function in the same way as System.out was hooked
 Methods implemented: getKbValue ()
 
-7. Needs to add a method to Quit and some better text for selection of Dice
+7. Add a Player class
 --------------------------------------------------------------------------------------------------------
 
-
-8. Add a controller
---------------------------------------------------------------------------------------------------------
-
-
-9. Setup a loop until 'Q' is pressed or game is completed
---------------------------------------------------------------------------------------------------------
+It should only store the name of the player
+It will then be extended with a score class that handles counting of the scores for the player
+Methods implemented: setName (), getName()
 
 
-10. Add a players class
---------------------------------------------------------------------------------------------------------
 
-
-11. Create a score class with the different options from the WWW page 
+xx. Create a score class with the different options from the WWW page 
 --------------------------------------------------------------------------------------------------------
 http://www.spelregler.org/yatzy-regler/
-
+https://sv.wikipedia.org/wiki/Yatzy

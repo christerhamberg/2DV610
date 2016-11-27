@@ -51,6 +51,7 @@ public class ViewGui extends JFrame{
 	
 	// Info TextField
 	JTextField jtInfo = new JTextField();
+	JTextField jtFreezeUnFreeze = new JTextField("Freeze/UnFreeze Dice");
 
 	public ViewGui (String title){
 		
@@ -88,7 +89,11 @@ public class ViewGui extends JFrame{
 		
 		// add dices
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
-
+		
+		// add info text about the row
+		addComponent (jtFreezeUnFreeze,7,DICE_FREEZE_CHECKBOX_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
+		jtFreezeUnFreeze.setEditable(false);
+				
 		// add Player 1 name field
 		addComponent (jtPlayer1,1,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
 		addPlayer ("Player 1");

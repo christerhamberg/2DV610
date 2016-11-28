@@ -10,6 +10,7 @@ import model.rules.RuleOnePair;
 import model.rules.RuleOnlyOnes;
 import model.rules.RuleOnlyTwos;
 import model.rules.RuleThreeOfAKind;
+import model.rules.RuleTwoPairs;
 import model.rules.RuleOnlyThrees;
 import model.rules.RuleOnlyFours;
 import model.rules.RuleOnlyFives;
@@ -184,6 +185,30 @@ public class TestRuleInterface {
 		
 		assertEquals (rule.validateResult(6,6,5,5,6),12);
 		assertEquals (rule.getResult(),12);
+	
+	}
+	
+	@Test
+	public void testRuleTwoPairs() {
+
+		RuleInterface rule = new RuleTwoPairs ();
+		assertEquals (rule.getRuleDescription(),"Two pairs");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,2,4,6),0);
+		assertEquals (rule.getResult(),0);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,2,3,6,2),16);
+		assertEquals (rule.getResult(),16);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,6,5,6,6),24);
+		assertEquals (rule.getResult(),24);
 	
 	}
 	

@@ -80,5 +80,22 @@ public class TestStateMachine {
 
 	}
 	
+	@Test
+	public void testStepTurn() {
+		
+		StateMachine mc = new StateMachine();
+		assertEquals (mc.getTurn(),0);
+		mc.stepTurn();
+		assertEquals (mc.getTurn(),1);
+		mc.stepTurn();
+		mc.stepTurn();
+		mc.stepTurn();
+		assertEquals (mc.getTurn(),4);
+		mc.resetStates();
+		assertEquals (mc.getTurn(),0);
+		
+	}
+
+	
 	
 }

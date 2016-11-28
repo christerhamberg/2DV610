@@ -1,4 +1,4 @@
-package model;
+package model.rules;
 
 public class RuleOnlyOnes implements RuleInterface{
 

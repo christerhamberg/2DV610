@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import model.rules.RuleFourOfAKind;
 import model.rules.RuleInterface;
 import model.rules.RuleOnePair;
 import model.rules.RuleOnlyFives;
@@ -10,6 +11,8 @@ import model.rules.RuleOnlyOnes;
 import model.rules.RuleOnlySixes;
 import model.rules.RuleOnlyThrees;
 import model.rules.RuleOnlyTwos;
+import model.rules.RuleThreeOfAKind;
+import model.rules.RuleTwoPairs;
 
 public class Score{
 	
@@ -52,7 +55,11 @@ public class Score{
 		rule.add(new RuleOnlyFours ());
 		rule.add(new RuleOnlyFives ());
 		rule.add(new RuleOnlySixes ());
+		
 		rule.add(new RuleOnePair ());
+		rule.add(new RuleTwoPairs ());
+		rule.add(new RuleThreeOfAKind ());
+		rule.add(new RuleFourOfAKind ());
 
 	}
 	

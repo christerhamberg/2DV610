@@ -147,17 +147,17 @@ Roll Dice button should change description
 Info text 
 
 
-xx. Add a quit button
+19. Add a quit button
 --------------------------------------------------------------------------------------------------------
+Just a butto to exit the game (no are you very very very sure question is used)
 
 
-
-
-
-
-
-xx. Add the score and implement the rules functions
+20. Add the score and implement the rules functions
 --------------------------------------------------------------------------------------------------------
+The rules will be implemented as an interface and then added one rule at the time. 
+A rule can hence be made optional etc.
+
+
 
 
 xx. Start putting all the things together into a working game

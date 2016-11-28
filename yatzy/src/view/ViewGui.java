@@ -28,7 +28,9 @@ public class ViewGui extends JFrame{
 	final int DICE_ROW = 2;
 	final int DICE_FREEZE_CHECKBOX_ROW = 3;
 	final int ROLL_BUTTON_ROW = 4;
-	
+	final int RULES_START_ROW = 6;
+	final int QUIT_ROW = 30;
+
 	protected JPanel pane;
 	protected GridBagConstraints c; 
 	
@@ -40,6 +42,7 @@ public class ViewGui extends JFrame{
 	
 	// Buttons
 	protected JButton jbRollButton = new JButton();
+	protected JButton jbQuit = new JButton();
 	
 	// Players
 	protected ArrayList <Player> player = new ArrayList <Player> ();
@@ -47,12 +50,21 @@ public class ViewGui extends JFrame{
 	protected JTextField jtPlayer2 = new JTextField ("Player 2");
 	
 	// State machine
-	StateMachine state;
+	protected StateMachine state;
+	protected int currentPlayer = 0;
 	
 	// Info TextField
-	JTextField jtInfo = new JTextField();
-	JTextField jtFreezeUnFreeze = new JTextField("Freeze/UnFreeze Dice");
+	protected JTextField jtInfo = new JTextField();
+	protected JTextField jtFreezeUnFreeze = new JTextField("Freeze/UnFreeze Dice");
 
+	// Info Rule TextField
+	protected ArrayList <JTextField> jtDescription1 = new ArrayList <JTextField> ();
+	protected ArrayList <JTextField> jtDescription2 = new ArrayList <JTextField> ();
+	protected ArrayList <JTextField> jtScorePl1 = new ArrayList <JTextField> ();
+	protected ArrayList <JTextField> jtScorePl2 = new ArrayList <JTextField> ();
+
+	
+	
 	public ViewGui (String title){
 		
 		// Set title
@@ -91,7 +103,7 @@ public class ViewGui extends JFrame{
 		for (int loopMe=1;5>=loopMe;loopMe++) addDice (loopMe);
 		
 		// add info text about the row
-		addComponent (jtFreezeUnFreeze,7,DICE_FREEZE_CHECKBOX_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
+		addComponent (jtFreezeUnFreeze,0,DICE_FREEZE_CHECKBOX_ROW,1,1,GridBagConstraints.FIRST_LINE_START);		
 		jtFreezeUnFreeze.setEditable(false);
 				
 		// add Player 1 name field
@@ -108,6 +120,15 @@ public class ViewGui extends JFrame{
 		// add Player 2 name field
 		addComponent (jtPlayer2,4,ROLL_BUTTON_ROW,1,2,GridBagConstraints.FIRST_LINE_START);		
 		addPlayer ("Player 2");
+		
+		// Add all the ruleComponents
+        addAllRules ();
+        
+        // Add quit button
+        jbQuit.setText("Quit");
+		addComponent (jbQuit,3,QUIT_ROW,1,1,GridBagConstraints.CENTER);        
+        addQuitButton ();
+
 
 		this.add(pane);
 		
@@ -231,15 +252,19 @@ public class ViewGui extends JFrame{
 			  } 
 			} );
 			
-	}
+	}	
 	
 	protected void rollButtonPressed (){
 				
+		if (state.isActive() == false) currentPlayer = 0;
+		
 		int currentState = state.getRollState ();
 		
 		state.stepRollState();
 		
 		if (currentState == 0){
+			
+			jtInfo.setText("Turn " + (state.getTurn()+1) +" for Player " +(currentPlayer+1) +" First Roll");
 			jbRollButton.setText("First Roll");
 			
 			// clear All freeze check boxes.
@@ -255,18 +280,39 @@ public class ViewGui extends JFrame{
 		if (currentState == 1){
 			
 			rollDices ();
+			jtInfo.setText("Turn " + (state.getTurn()+1) +" for Player " +(currentPlayer+1) +" Second Roll");
 			jbRollButton.setText("Second Roll");
-			
+
 		}
 		if (currentState == 2){
 			
 			rollDices ();
+			jtInfo.setText("Turn " + (state.getTurn()+1) +" for Player " +(currentPlayer+1) +" Third Roll");
 			jbRollButton.setText("Third Roll");
 
 		}
 		if (currentState == 3){
 			
 			rollDices ();
+						
+			player.get(currentPlayer).validateResult(state.getTurn(), dice.get(0).getValue(), dice.get(1).getValue(), dice.get(2).getValue(), dice.get(3).getValue(), dice.get(4).getValue());
+
+			if (currentPlayer == 0){
+				
+				player.get(currentPlayer).validateResult(state.getTurn(), dice.get(0).getValue(), dice.get(1).getValue(), dice.get(2).getValue(), dice.get(3).getValue(), dice.get(4).getValue());
+				jtScorePl1.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
+				currentPlayer = 1;
+
+			}
+			else {
+				player.get(currentPlayer).validateResult(state.getTurn(), dice.get(0).getValue(), dice.get(1).getValue(), dice.get(2).getValue(), dice.get(3).getValue(), dice.get(4).getValue());
+				jtScorePl2.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
+				currentPlayer = 0;
+				
+				state.stepTurn();
+
+			}
+			
 			rollButtonPressed();
 			
 		}
@@ -292,6 +338,90 @@ public class ViewGui extends JFrame{
 		}
 				
 	}
+	
+	private void addQuitButton (){
+		jbQuit.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    System.exit (0);
+			  } 
+			} );
+	}
+	
+	private void addAllRules (){
+		
+		// 1s
+		addRuleDescriptionToBoard (0);
+		
+		// 2s
+		addRuleDescriptionToBoard (1);
+		
+		// 3s
+		addRuleDescriptionToBoard (2);		
+		
+		// 4s
+		addRuleDescriptionToBoard (3);
+		
+		// 5s
+		addRuleDescriptionToBoard (4);	
+		
+		// 6s
+		addRuleDescriptionToBoard (5);	
+		
+		// Sum
 
+		// Bonus
+
+		// One pair
+		
+		// Two pairs
+		
+		// Three of a kind
+		
+		// Four of a kind
+
+		// Small Straight
+
+		// Large Straight
+
+		// Full House
+
+		// Chance
+
+		// Yatzy
+
+		// Total
+
+		
+	}
+	
+	private void addRuleDescriptionToBoard (int xpos){
+
+		Player pl1 = player.get(0);
+		Player pl2 = player.get(1);
+
+		JTextField jt1 = new JTextField ();
+		jt1.setText(pl1.getRuleDescription(xpos));
+		jt1.setEditable(false);
+		addComponent (jt1,0,(RULES_START_ROW+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		JTextField score1 = new JTextField ();
+		jtScorePl1.add(score1);
+		score1.setEditable(false);
+		addComponent (score1,2,(RULES_START_ROW+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+				
+		JTextField jt2 = new JTextField ();
+		jt2.setText(pl2.getRuleDescription(xpos));
+		jt2.setEditable(false);
+		addComponent (jt2,4,(RULES_START_ROW+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		
+		JTextField score2 = new JTextField ();
+		jtScorePl2.add(score2);
+		score2.setEditable(false);
+		addComponent (score2,5,(RULES_START_ROW+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+		
+	}
+	
+	
 
 }

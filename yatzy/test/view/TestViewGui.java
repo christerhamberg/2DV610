@@ -206,6 +206,7 @@ public class TestViewGui {
 	public void testInfoText (){
 		
 		ViewGui gui = new ViewGui ("Test1");
+		gui.jtInfo.setText("XXX1");
 		assertEquals (""+gui.jtInfo.getText(),"XXX1");
 		
 		gui.jtInfo.setText("XXX2");

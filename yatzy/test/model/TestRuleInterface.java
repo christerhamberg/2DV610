@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import model.rules.RuleInterface;
+import model.rules.RuleOnePair;
 import model.rules.RuleOnlyOnes;
 import model.rules.RuleOnlyTwos;
 import model.rules.RuleOnlyThrees;
@@ -179,7 +180,7 @@ public class TestRuleInterface {
 		rule.resetResult();
 		assertEquals (rule.getResult(),0);
 		
-		assertEquals (rule.validateResult(6,6,6,6,6),12);
+		assertEquals (rule.validateResult(6,6,5,5,6),12);
 		assertEquals (rule.getResult(),12);
 	
 	}

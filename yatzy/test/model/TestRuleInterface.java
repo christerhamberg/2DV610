@@ -8,6 +8,7 @@ import model.rules.RuleInterface;
 import model.rules.RuleOnePair;
 import model.rules.RuleOnlyOnes;
 import model.rules.RuleOnlyTwos;
+import model.rules.RuleThreeOfAKind;
 import model.rules.RuleOnlyThrees;
 import model.rules.RuleOnlyFours;
 import model.rules.RuleOnlyFives;
@@ -188,7 +189,7 @@ public class TestRuleInterface {
 	@Test
 	public void testRuleThreeOfAKind() {
 
-		RuleInterface rule = new RuleOnePair ();
+		RuleInterface rule = new RuleThreeOfAKind ();
 		assertEquals (rule.getRuleDescription(),"Three of a kind");
 
 		assertEquals (rule.getResult(),0);

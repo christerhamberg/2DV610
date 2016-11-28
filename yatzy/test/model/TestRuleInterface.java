@@ -163,7 +163,7 @@ public class TestRuleInterface {
 	@Test
 	public void testRuleOnePair() {
 
-		RuleInterface rule = new RuleOnlySixes ();
+		RuleInterface rule = new RuleOnePair ();
 		assertEquals (rule.getRuleDescription(),"One pair");
 
 		assertEquals (rule.getResult(),0);

@@ -160,5 +160,29 @@ public class TestRuleInterface {
 	
 	}
 	
+	@Test
+	public void testRuleOnePair() {
+
+		RuleInterface rule = new RuleOnlySixes ();
+		assertEquals (rule.getRuleDescription(),"One pair");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,2,4,6),2);
+		assertEquals (rule.getResult(),2);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,2,3,6,2),12);
+		assertEquals (rule.getResult(),12);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,6,6,6,6),12);
+		assertEquals (rule.getResult(),12);
+	
+	}
+	
 	
 }

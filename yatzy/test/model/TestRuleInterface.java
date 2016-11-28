@@ -6,6 +6,12 @@ import org.junit.Test;
 
 import model.rules.RuleInterface;
 import model.rules.RuleOnlyOnes;
+import model.rules.RuleOnlyTwos;
+import model.rules.RuleOnlyThrees;
+import model.rules.RuleOnlyFours;
+import model.rules.RuleOnlyFives;
+import model.rules.RuleOnlySixes;
+
 
 public class TestRuleInterface {
 

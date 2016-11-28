@@ -56,7 +56,14 @@ public class Score{
 	}
 
 	public int validateResult (int ruleVal,int d1, int d2, int d3, int d4, int d5){
-		return rule.get(ruleVal).validateResult(d1,d2,d3,d4,d5);
+		
+		int result = rule.get(ruleVal).validateResult(d1,d2,d3,d4,d5);
+		
+		if (ruleVal<=6) totalBottomScore = totalBottomScore + result;
+		totalScore = totalScore + result;
+		
+		return result;
+		
 	}
 	
 	public int getResult (int ruleVal){
@@ -66,7 +73,5 @@ public class Score{
 	public void resetResult (int ruleVal){
 		 rule.get(ruleVal).resetResult();
 	}
-	
-
-	
+		
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.rules.RuleFourOfAKind;
 import model.rules.RuleInterface;
 import model.rules.RuleOnePair;
 import model.rules.RuleOnlyOnes;
@@ -207,6 +208,30 @@ public class TestRuleInterface {
 		
 		assertEquals (rule.validateResult(6,6,5,5,6),18);
 		assertEquals (rule.getResult(),18);
+	
+	}
+	
+	@Test
+	public void testRuleFourOfAKind() {
+
+		RuleInterface rule = new RuleThreeOfAKind ();
+		assertEquals (rule.getRuleDescription(),"Four of a kind");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,2,4,6),0);
+		assertEquals (rule.getResult(),0);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,1,6,1),4);
+		assertEquals (rule.getResult(),4);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,6,5,6,6),24);
+		assertEquals (rule.getResult(),24);
 	
 	}
 	

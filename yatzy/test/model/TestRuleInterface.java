@@ -185,5 +185,29 @@ public class TestRuleInterface {
 	
 	}
 	
+	@Test
+	public void testRuleThreeOfAKind() {
+
+		RuleInterface rule = new RuleOnePair ();
+		assertEquals (rule.getRuleDescription(),"Three of a kind");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,2,4,6),0);
+		assertEquals (rule.getResult(),0);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,3,6,1),3);
+		assertEquals (rule.getResult(),3);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,6,5,5,6),18);
+		assertEquals (rule.getResult(),18);
+	
+	}
+	
 	
 }

@@ -12,9 +12,12 @@ public class StateMachine {
 	private boolean active = false;
 	private int state = 0;
 	
+	private int turn = 0;
+	
 	public StateMachine (){
 		active = false;
 		state = 0;
+		turn = 0;
 	}
 
 	public void stepRollState (){
@@ -37,6 +40,7 @@ public class StateMachine {
 	public void resetStates (){
 		active = false;
 		state = 0;
+		turn = 0;
 	}
 	
 	public boolean canFreeze (){
@@ -46,6 +50,14 @@ public class StateMachine {
 		else if (state == 2) return true;
 		else if (state == 3) return true;
 		else return false;
+	}
+	
+	public int getTurn (){
+		return turn;
+	}
+	
+	public void stepTurn (){
+		turn++;
 	}
 	
 }

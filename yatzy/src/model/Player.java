@@ -3,10 +3,12 @@ package model;
 public class Player extends Score{
 	
 	protected String playerName = "";
+	protected boolean playerActive = false;
 	
 	public Player (String myName) {
 		
 		playerName = myName;
+		playerActive = false;
 		
 	}
 	
@@ -17,5 +19,17 @@ public class Player extends Score{
 	public String getName (){
 		return playerName;
 	}
+	
+	public boolean isPlayerActive (){
+		return playerActive;
+	}
+	
+	public void setPlayerActive (){
+		playerActive = true;
+	}
 
+	public void resetPlayerActive (){
+		playerActive = false;
+	}
+	
 }

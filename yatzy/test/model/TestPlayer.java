@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestPlayer {
 	
 	@Test
-	public void setAndGetPlayerName() {
+	public void testSetAndGetPlayerName() {
 		
 		Player pl1 = new Player ("Kalle Anka");
 		
@@ -24,4 +24,19 @@ public class TestPlayer {
 
 	}
 
+	@Test
+	public void testPlayerActive() {
+		
+		Player pl1 = new Player ("Kalle Anka");
+		assertFalse (pl1.isPlayerActive());
+
+		pl1.setPlayerActive();
+		assertTrue (pl1.isPlayerActive());
+
+		pl1.resetPlayerActive();
+		assertFalse (pl1.isPlayerActive());
+
+	}
+
+	
 }

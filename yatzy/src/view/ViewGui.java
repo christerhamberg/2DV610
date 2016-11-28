@@ -31,6 +31,8 @@ public class ViewGui extends JFrame{
 	final int RULES_START_ROW = 6;
 	final int RULES_SUM1_ROW= 12;
 	final int RULES_BONUS_ROW= 13;
+	final int RULES_START_ROW2 = 14;
+	final int RULES_TOTAL_ROW = 30;
 
 	
 	final int QUIT_ROW = 30;
@@ -67,8 +69,19 @@ public class ViewGui extends JFrame{
 	protected ArrayList <JTextField> jtScorePl1 = new ArrayList <JTextField> ();
 	protected ArrayList <JTextField> jtScorePl2 = new ArrayList <JTextField> ();
 
+	protected JTextField jtSum1Pl1a = new JTextField ();
+	protected JTextField jtSum1Pl2a = new JTextField ();
+	protected JTextField jtSum1Pl1b = new JTextField ();
+	protected JTextField jtSum1Pl2b = new JTextField ();
+	protected JTextField jtBonusPl1a = new JTextField ();
+	protected JTextField jtBonusPl2a = new JTextField ();
+	protected JTextField jtBonusPl1b = new JTextField ();
+	protected JTextField jtBonusPl2b = new JTextField ();
 	
-	
+	protected JTextField jtTotalSum1Pl1a = new JTextField ();
+	protected JTextField jtTotalSum1Pl2a = new JTextField ();
+	protected JTextField jtTotalSum1Pl1b = new JTextField ();
+	protected JTextField jtTotalSum1Pl2b = new JTextField ();
 	
 	public ViewGui (String title){
 		
@@ -130,7 +143,8 @@ public class ViewGui extends JFrame{
 		addFirstSetOfRules ();
 		addFirstSetSum ();
 		addBonus ();
-		
+		addTotalSum ();
+
         
         // Add quit button
         jbQuit.setText("Quit");
@@ -309,8 +323,16 @@ public class ViewGui extends JFrame{
 				
 				jtScorePl1.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				
-				if (state.getTurn()<6) jtScorePl1.get(6).setText(""+player.get(currentPlayer).getTotalBottomScore());
+				if (state.getTurn()<6) jtSum1Pl1b.setText(""+player.get(currentPlayer).getTotalBottomScore());
+				else if (state.getTurn() == 6){
+					if (player.get(currentPlayer).isBonus () == true){
+						jtBonusPl1b.setText("50");
+					}
+					else jtBonusPl1b.setText("0");
+				}
 
+				jtTotalSum1Pl1b.setText(""+ +player.get(currentPlayer).getTotalScore());
+				
 				currentPlayer = 1;
 
 			}
@@ -318,8 +340,17 @@ public class ViewGui extends JFrame{
 
 				jtScorePl2.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				
-				if (state.getTurn()<6) jtScorePl2.get(6).setText(""+player.get(currentPlayer).getTotalBottomScore());
+				if (state.getTurn()<6) jtSum1Pl2b.setText(""+player.get(currentPlayer).getTotalBottomScore());
+				else if (state.getTurn() == 6){
+					if (player.get(currentPlayer).isBonus () == true){
+						jtBonusPl2b.setText("50");
+					}
+					else jtBonusPl2b.setText("0");
+				}
+				
+				jtTotalSum1Pl2b.setText(""+ +player.get(currentPlayer).getTotalScore());
 
+				
 				currentPlayer = 0;
 				state.stepTurn();
 
@@ -384,7 +415,8 @@ public class ViewGui extends JFrame{
 		// Bonus
 
 		// One pair
-		
+		addRuleDescriptionToBoard2 (6);	
+
 		// Two pairs
 		
 		// Three of a kind
@@ -407,61 +439,56 @@ public class ViewGui extends JFrame{
 	}
 	
 	private void addFirstSetSum (){
-		
-		Player pl1 = player.get(0);
-		Player pl2 = player.get(1);
-		
-		JTextField jt1 = new JTextField ();
-		jt1.setText("SUM");
-		jt1.setEditable(false);
-		addComponent (jt1,0,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 
-		JTextField score1 = new JTextField ();
-		jtScorePl1.add(score1);
-		score1.setEditable(false);
-		addComponent (score1,2,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtSum1Pl1a.setText("Sum");
+		jtSum1Pl1a.setEditable(false);
+		addComponent (jtSum1Pl1a,0,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		jtSum1Pl1b.setEditable(false);
+		addComponent (jtSum1Pl1b,2,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 				
-		JTextField jt2 = new JTextField ();
-		jt2.setText("SUM");
-		jt2.setEditable(false);
-		addComponent (jt2,4,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtSum1Pl2a.setText("Sum");
+		jtSum1Pl2a.setEditable(false);
+		addComponent (jtSum1Pl2a,4,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 
-		JTextField score2 = new JTextField ();
-		jtScorePl2.add(score2);
-		score2.setEditable(false);
-		addComponent (score2,5,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
-		
-		
-		final int RULES_SUM1_ROW= 12;
-		final int RULES_BONUS_ROW= 13;
-		
+		jtSum1Pl2b.setEditable(false);
+		addComponent (jtSum1Pl2b,5,(RULES_SUM1_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 		
 	}
 	
 	private void addBonus(){
 		
-		Player pl1 = player.get(0);
-		Player pl2 = player.get(1);
-		
-		JTextField jt1 = new JTextField ();
-		jt1.setText("Bonus");
-		jt1.setEditable(false);
-		addComponent (jt1,0,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtBonusPl1a.setText("Bonus");
+		jtBonusPl1a.setEditable(false);
+		addComponent (jtBonusPl1a,0,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 
-		JTextField score1 = new JTextField ();
-		jtScorePl1.add(score1);
-		score1.setEditable(false);
-		addComponent (score1,2,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtBonusPl1b.setEditable(false);
+		addComponent (jtBonusPl1b,2,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 				
-		JTextField jt2 = new JTextField ();
-		jt2.setText("Bonus");
-		jt2.setEditable(false);
-		addComponent (jt2,4,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtBonusPl2a.setText("Bonus");
+		jtBonusPl2a.setEditable(false);
+		addComponent (jtBonusPl2a,4,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 
-		JTextField score2 = new JTextField ();
-		jtScorePl2.add(score2);
-		score2.setEditable(false);
-		addComponent (score2,5,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		jtBonusPl2b.setEditable(false);
+		addComponent (jtBonusPl2b,5,(RULES_BONUS_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+		
+	}
+	
+	private void addTotalSum (){
+
+		jtTotalSum1Pl1a.setText("Total Sum");
+		jtTotalSum1Pl1a.setEditable(false);
+		addComponent (jtTotalSum1Pl1a,0,(RULES_TOTAL_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		jtTotalSum1Pl1b.setEditable(false);
+		addComponent (jtTotalSum1Pl1b,2,(RULES_TOTAL_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+				
+		jtTotalSum1Pl2a.setText("Total Sum");
+		jtTotalSum1Pl2a.setEditable(false);
+		addComponent (jtTotalSum1Pl2a,4,(RULES_TOTAL_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		jtTotalSum1Pl2b.setEditable(false);
+		addComponent (jtTotalSum1Pl2b,5,(RULES_TOTAL_ROW),1,1,GridBagConstraints.FIRST_LINE_START);
 		
 	}
 	
@@ -493,6 +520,33 @@ public class ViewGui extends JFrame{
 		
 	}
 	
+	private void addRuleDescriptionToBoard2 (int xpos){
+
+		Player pl1 = player.get(0);
+		Player pl2 = player.get(1);
+
+		JTextField jt1 = new JTextField ();
+		jt1.setText(pl1.getRuleDescription(xpos));
+		jt1.setEditable(false);
+		addComponent (jt1,0,(RULES_START_ROW2+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		JTextField score1 = new JTextField ();
+		jtScorePl1.add(score1);
+		score1.setEditable(false);
+		addComponent (score1,2,(RULES_START_ROW2+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+				
+		JTextField jt2 = new JTextField ();
+		jt2.setText(pl2.getRuleDescription(xpos));
+		jt2.setEditable(false);
+		addComponent (jt2,4,(RULES_START_ROW2+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+
+		
+		JTextField score2 = new JTextField ();
+		jtScorePl2.add(score2);
+		score2.setEditable(false);
+		addComponent (score2,5,(RULES_START_ROW2+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+		
+	}
 	
 
 }

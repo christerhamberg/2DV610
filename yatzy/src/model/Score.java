@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 import model.rules.RuleInterface;
+import model.rules.RuleOnePair;
 import model.rules.RuleOnlyFives;
 import model.rules.RuleOnlyFours;
 import model.rules.RuleOnlyOnes;
@@ -15,6 +16,8 @@ public class Score{
 	protected int totalScore = 0;
 	protected int totalBottomScore = 0;
 	
+	protected int ADDED_BONUS = 50;
+	
 	protected ArrayList <RuleInterface> rule = new ArrayList <RuleInterface> ();
 	
 	final int BONUS = 63;
@@ -26,6 +29,7 @@ public class Score{
 	}
 	
 	public int getTotalScore (){
+		if (isBonus() == true) return totalScore + ADDED_BONUS;
 		return totalScore;
 	}
 	
@@ -41,12 +45,15 @@ public class Score{
 	}
 	
 	private void buildNewRules (){
+		
 		rule.add(new RuleOnlyOnes ());
 		rule.add(new RuleOnlyTwos ());
 		rule.add(new RuleOnlyThrees ());
 		rule.add(new RuleOnlyFours ());
 		rule.add(new RuleOnlyFives ());
 		rule.add(new RuleOnlySixes ());
+		rule.add(new RuleOnePair ());
+
 	}
 	
 	

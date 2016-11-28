@@ -214,7 +214,7 @@ public class TestRuleInterface {
 	@Test
 	public void testRuleFourOfAKind() {
 
-		RuleInterface rule = new RuleThreeOfAKind ();
+		RuleInterface rule = new RuleFourOfAKind ();
 		assertEquals (rule.getRuleDescription(),"Four of a kind");
 
 		assertEquals (rule.getResult(),0);

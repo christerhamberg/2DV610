@@ -427,6 +427,7 @@ public class ViewGui extends JFrame{
 		addRuleDescriptionToBoard2 (9);	
 
 		// Small Straight
+		addRuleDescriptionToBoard2 (10);	
 
 		// Large Straight
 

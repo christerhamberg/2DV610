@@ -271,7 +271,7 @@ public class TestRuleInterface {
 		assertEquals (rule.getResult(),0);
 		
 		assertEquals (rule.validateResult(1,2,3,4,5),15);
-		assertEquals (rule.getResult(),0);
+		assertEquals (rule.getResult(),15);
 
 		rule.resetResult();
 		assertEquals (rule.getResult(),0);

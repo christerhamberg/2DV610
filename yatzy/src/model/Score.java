@@ -11,6 +11,7 @@ import model.rules.RuleOnlyOnes;
 import model.rules.RuleOnlySixes;
 import model.rules.RuleOnlyThrees;
 import model.rules.RuleOnlyTwos;
+import model.rules.RuleSmallStraight;
 import model.rules.RuleThreeOfAKind;
 import model.rules.RuleTwoPairs;
 
@@ -60,6 +61,7 @@ public class Score{
 		rule.add(new RuleTwoPairs ());
 		rule.add(new RuleThreeOfAKind ());
 		rule.add(new RuleFourOfAKind ());
+		rule.add(new RuleSmallStraight ());
 
 	}
 	

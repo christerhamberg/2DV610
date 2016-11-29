@@ -16,6 +16,7 @@ import model.rules.RuleOnlyFours;
 import model.rules.RuleOnlyFives;
 import model.rules.RuleOnlySixes;
 import model.rules.RuleSmallStraight;
+import model.rules.RuleLargeStraight;
 
 
 public class TestRuleInterface {
@@ -283,6 +284,30 @@ public class TestRuleInterface {
 		
 		assertEquals (rule.validateResult(5,2,3,1,4),15);
 		assertEquals (rule.getResult(),15);
+	
+	}
+	
+	@Test
+	public void testRuleLargeStraight() {
+
+		RuleInterface rule = new RuleLargeStraight ();
+		assertEquals (rule.getRuleDescription(),"Large Straight");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(6,2,3,4,5),20);
+		assertEquals (rule.getResult(),20);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,1,6,1),0);
+		assertEquals (rule.getResult(),0);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(5,2,3,6,4),20);
+		assertEquals (rule.getResult(),20);
 	
 	}
 	

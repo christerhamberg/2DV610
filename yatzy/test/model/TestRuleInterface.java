@@ -18,6 +18,7 @@ import model.rules.RuleOnlySixes;
 import model.rules.RuleSmallStraight;
 import model.rules.RuleLargeStraight;
 import model.rules.RuleFullHouse;
+import model.rules.RuleChance;
 
 
 
@@ -337,5 +338,28 @@ public class TestRuleInterface {
 	
 	}
 	
+	@Test
+	public void testRuleChance() {
+
+		RuleInterface rule = new RuleChance ();
+		assertEquals (rule.getRuleDescription(),"Chance");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,2,2,2,1),8);
+		assertEquals (rule.getResult(),8);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,1,6,1),10);
+		assertEquals (rule.getResult(),10);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(5,5,5,2,2),19);
+		assertEquals (rule.getResult(),19);
+	
+	}
 	
 }

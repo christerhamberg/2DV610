@@ -366,7 +366,7 @@ public class TestRuleInterface {
 	@Test
 	public void testRuleYatzy() {
 
-		RuleInterface rule = new RuleChance ();
+		RuleInterface rule = new RuleYatzy ();
 		assertEquals (rule.getRuleDescription(),"Yatzy");
 
 		assertEquals (rule.getResult(),0);

@@ -19,6 +19,7 @@ import model.rules.RuleSmallStraight;
 import model.rules.RuleLargeStraight;
 import model.rules.RuleFullHouse;
 import model.rules.RuleChance;
+import model.rules.RuleYatzy;
 
 
 
@@ -361,5 +362,30 @@ public class TestRuleInterface {
 		assertEquals (rule.getResult(),19);
 	
 	}
+	
+	@Test
+	public void testRuleYatzy() {
+
+		RuleInterface rule = new RuleChance ();
+		assertEquals (rule.getRuleDescription(),"Yatzy");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(2,2,2,2,2),50);
+		assertEquals (rule.getResult(),50);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,1,6,1),0);
+		assertEquals (rule.getResult(),0);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(5,5,5,5,5),50);
+		assertEquals (rule.getResult(),50);
+	
+	}
+	
 	
 }

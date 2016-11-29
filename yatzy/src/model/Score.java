@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.rules.RuleFourOfAKind;
 import model.rules.RuleInterface;
+import model.rules.RuleLargeStraight;
 import model.rules.RuleOnePair;
 import model.rules.RuleOnlyFives;
 import model.rules.RuleOnlyFours;
@@ -62,6 +63,7 @@ public class Score{
 		rule.add(new RuleThreeOfAKind ());
 		rule.add(new RuleFourOfAKind ());
 		rule.add(new RuleSmallStraight ());
+		rule.add(new RuleLargeStraight ());
 
 	}
 	

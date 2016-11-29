@@ -17,6 +17,7 @@ import model.rules.RuleOnlyFives;
 import model.rules.RuleOnlySixes;
 import model.rules.RuleSmallStraight;
 import model.rules.RuleLargeStraight;
+import model.rules.RuleFullHouse;
 
 
 public class TestRuleInterface {
@@ -308,6 +309,30 @@ public class TestRuleInterface {
 		
 		assertEquals (rule.validateResult(5,2,3,6,4),20);
 		assertEquals (rule.getResult(),20);
+	
+	}
+	
+	@Test
+	public void testRuleFullHouse() {
+
+		RuleInterface rule = new RuleFullHouse ();
+		assertEquals (rule.getRuleDescription(),"Full House");
+
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,2,2,2,1),8);
+		assertEquals (rule.getResult(),8);
+
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(1,1,1,6,1),0);
+		assertEquals (rule.getResult(),0);
+		rule.resetResult();
+		assertEquals (rule.getResult(),0);
+		
+		assertEquals (rule.validateResult(5,5,5,2,2),19);
+		assertEquals (rule.getResult(),19);
 	
 	}
 	

@@ -20,6 +20,7 @@ import model.rules.RuleLargeStraight;
 import model.rules.RuleFullHouse;
 
 
+
 public class TestRuleInterface {
 
 	@Test

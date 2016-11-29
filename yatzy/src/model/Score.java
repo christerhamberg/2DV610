@@ -2,7 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import model.rules.RuleChance;
 import model.rules.RuleFourOfAKind;
+import model.rules.RuleFullHouse;
 import model.rules.RuleInterface;
 import model.rules.RuleLargeStraight;
 import model.rules.RuleOnePair;
@@ -15,6 +17,7 @@ import model.rules.RuleOnlyTwos;
 import model.rules.RuleSmallStraight;
 import model.rules.RuleThreeOfAKind;
 import model.rules.RuleTwoPairs;
+import model.rules.RuleYatzy;
 
 public class Score{
 	
@@ -64,6 +67,9 @@ public class Score{
 		rule.add(new RuleFourOfAKind ());
 		rule.add(new RuleSmallStraight ());
 		rule.add(new RuleLargeStraight ());
+		rule.add(new RuleFullHouse ());
+		rule.add(new RuleChance ());
+		rule.add(new RuleYatzy ());
 
 	}
 	
@@ -88,8 +94,13 @@ public class Score{
 		return rule.get(ruleVal).getResult();
 	}
 
-	public void resetResult (int ruleVal){
-		 rule.get(ruleVal).resetResult();
+	public void resetResult (){
+		
+		totalScore = 0;
+		totalBottomScore = 0;
+		
+		for (int loopMe=0;rule.size()>loopMe;loopMe++) rule.get(loopMe).resetResult();
+		
 	}
 		
 }

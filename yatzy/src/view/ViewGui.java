@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -286,6 +287,19 @@ public class ViewGui extends JFrame{
 		
 		if (currentState == 0){
 			
+			// RESET IF A NEW GAME
+			if (state.getTurn() == 0 && currentPlayer == 0) resetTextField ();
+			
+			if (currentPlayer == 0){
+				jtPlayer1.setForeground(Color.BLACK);
+				jtPlayer2.setForeground(Color.GRAY);
+			}
+			else {
+				jtPlayer1.setForeground(Color.GRAY);
+				jtPlayer2.setForeground(Color.BLACK);
+			}
+			
+			
 			jtInfo.setText("Turn " + (state.getTurn()+1) +" for Player " +(currentPlayer+1) +" First Roll");
 			jbRollButton.setText("First Roll");
 			
@@ -320,9 +334,7 @@ public class ViewGui extends JFrame{
 			player.get(currentPlayer).validateResult(state.getTurn(), dice.get(0).getValue(), dice.get(1).getValue(), dice.get(2).getValue(), dice.get(3).getValue(), dice.get(4).getValue());
 
 			if (currentPlayer == 0){
-				
-				jtScorePl1.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
-				
+
 				if (state.getTurn()<6) jtSum1Pl1b.setText(""+player.get(currentPlayer).getTotalBottomScore());
 				else if (state.getTurn() == 6){
 					if (player.get(currentPlayer).isBonus () == true){
@@ -330,7 +342,8 @@ public class ViewGui extends JFrame{
 					}
 					else jtBonusPl1b.setText("0");
 				}
-
+				
+				jtScorePl1.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				jtTotalSum1Pl1b.setText(""+ +player.get(currentPlayer).getTotalScore());
 				
 				currentPlayer = 1;
@@ -338,8 +351,6 @@ public class ViewGui extends JFrame{
 			}
 			else {
 
-				jtScorePl2.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
-				
 				if (state.getTurn()<6) jtSum1Pl2b.setText(""+player.get(currentPlayer).getTotalBottomScore());
 				else if (state.getTurn() == 6){
 					if (player.get(currentPlayer).isBonus () == true){
@@ -348,6 +359,7 @@ public class ViewGui extends JFrame{
 					else jtBonusPl2b.setText("0");
 				}
 				
+				jtScorePl2.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				jtTotalSum1Pl2b.setText(""+ +player.get(currentPlayer).getTotalScore());
 
 				
@@ -356,7 +368,37 @@ public class ViewGui extends JFrame{
 
 			}
 			
-			rollButtonPressed();
+			if (state.getTurn() == 15){
+				
+				// Show Winner
+				
+				Player p1 = player.get(0);
+				Player p2 = player.get(1);
+
+				if (p1.getTotalScore() == p2.getTotalScore()){
+					jtInfo.setText("No winner Equal Score");
+				}
+				else if (p1.getTotalScore() > p2.getTotalScore()){
+					jtInfo.setText("Player 1 is the winner!!!");
+				}
+				else {
+					jtInfo.setText("Player 2 is the winner!!!");
+				}
+				
+				// clear all data
+				p1.resetPlayerActive();
+				p2.resetPlayerActive();
+				p1.resetResult();
+				p2.resetResult();
+								
+				// Ask if a new game is to be played
+				jbRollButton.setText("New Game?");
+							
+				// reset Turn
+				state.resetStates();
+				
+			}
+			else rollButtonPressed();
 			
 		}
 		
@@ -433,10 +475,13 @@ public class ViewGui extends JFrame{
 		addRuleDescriptionToBoard2 (11);	
 
 		// Full House
+		addRuleDescriptionToBoard2 (12);	
 
 		// Chance
+		addRuleDescriptionToBoard2 (13);	
 
 		// Yatzy
+		addRuleDescriptionToBoard2 (14);	
 
 		// Total
 
@@ -550,6 +595,21 @@ public class ViewGui extends JFrame{
 		jtScorePl2.add(score2);
 		score2.setEditable(false);
 		addComponent (score2,5,(RULES_START_ROW2+xpos),1,1,GridBagConstraints.FIRST_LINE_START);
+		
+	}
+	
+	private void resetTextField (){
+		
+		for (int loopMe=0;jtScorePl1.size()>loopMe;loopMe++) jtScorePl1.get(loopMe).setText("");
+		for (int loopMe=0;jtScorePl2.size()>loopMe;loopMe++) jtScorePl2.get(loopMe).setText("");
+
+		jtSum1Pl1b.setText("");
+		jtSum1Pl2b.setText("");
+		jtBonusPl1b.setText("");
+		jtBonusPl2b.setText("");
+		
+		jtTotalSum1Pl1b.setText("");
+		jtTotalSum1Pl2b.setText("");
 		
 	}
 	

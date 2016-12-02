@@ -1,15 +1,11 @@
 package model.rules;
 
-public class RuleOnlyTwos implements RuleInterface{
+public class RuleOnlyTwos extends RuleAbstractCommon implements RuleInterface{
 
-	private String ruleDescription = "Max number of 2s";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleOnlyTwos (){
+		super ("Max number of 2s");
 	}
-
+	
 	@Override
 	public int validateResult(int dice1, int dice2, int dice3, int dice4, int dice5) {
 
@@ -24,15 +20,5 @@ public class RuleOnlyTwos implements RuleInterface{
 		return result;
 		
 	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
-	}
-
+	
 }

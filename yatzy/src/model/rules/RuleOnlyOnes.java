@@ -1,13 +1,9 @@
 package model.rules;
 
-public class RuleOnlyOnes implements RuleInterface{
-
-	private String ruleDescription = "Max number of 1s";
-	private int result = 0;
+public class RuleOnlyOnes extends RuleAbstractCommon implements RuleInterface{
 	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleOnlyOnes (){
+		super ("Max number of 1s");
 	}
 
 	@Override
@@ -23,16 +19,6 @@ public class RuleOnlyOnes implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

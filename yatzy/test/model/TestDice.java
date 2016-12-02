@@ -134,7 +134,7 @@ public class TestDice {
 		int value2 = dc.rollDice();
 		
 		// we should not get to this point
-		fail ("Rolling of frozen dice possible, this should cause an exception");
+		fail ("Rolling of frozen dice not possible, this should cause an exception");
 		
 	}
 	

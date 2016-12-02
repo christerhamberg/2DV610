@@ -1,17 +1,13 @@
 package model.rules;
 
-public class RuleLargeStraight implements RuleInterface{
+public class RuleLargeStraight extends RuleAbstractCommon implements RuleInterface{
 
 	private final int FIXED_SCORE = 20;
-	
-	private String ruleDescription = "Large Straight";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
-	}
 
+	public RuleLargeStraight (){
+		super ("Large Straight");
+	}
+	
 	@Override
 	public int validateResult(int dice1, int dice2, int dice3, int dice4, int dice5) {
 
@@ -45,16 +41,6 @@ public class RuleLargeStraight implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

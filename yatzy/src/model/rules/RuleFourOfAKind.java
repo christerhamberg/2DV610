@@ -1,15 +1,11 @@
 package model.rules;
 
-public class RuleFourOfAKind implements RuleInterface{
+public class RuleFourOfAKind extends RuleAbstractCommon implements RuleInterface{
 
-	private String ruleDescription = "Four of a kind";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleFourOfAKind (){
+		super ("Four of a kind");
 	}
-
+	
 	@Override
 	public int validateResult(int dice1, int dice2, int dice3, int dice4, int dice5) {
 
@@ -34,16 +30,6 @@ public class RuleFourOfAKind implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

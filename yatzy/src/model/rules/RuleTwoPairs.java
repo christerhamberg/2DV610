@@ -1,13 +1,9 @@
 package model.rules;
 
-public class RuleTwoPairs implements RuleInterface{
-
-	private String ruleDescription = "Two pairs";
-	private int result = 0;
+public class RuleTwoPairs extends RuleAbstractCommon implements RuleInterface{
 	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleTwoPairs (){
+		super ("Two pairs");
 	}
 
 	@Override
@@ -45,16 +41,6 @@ public class RuleTwoPairs implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

@@ -20,6 +20,21 @@ public class TestScore {
 		fake1.setTotalScore (12);
 		assertEquals (fake1.getTotalScore(),12);
 		
+		fake1.setTotalScore (12);		
+		fake1.setBottomTotalScore(62);
+		
+		assertEquals (fake1.getTotalScore(),12);
+
+		fake1.setTotalScore (12);		
+		fake1.setBottomTotalScore(63);
+
+		assertEquals (fake1.getTotalScore(),62);
+		
+		fake1.setTotalScore (12);		
+		fake1.setBottomTotalScore(64);
+
+		assertEquals (fake1.getTotalScore(),62);
+		
 	}
 	
 	@Test
@@ -56,7 +71,15 @@ public class TestScore {
 		assertTrue (fake1.isBonus());
 		
 	}
+	
+	@Test
+	public void resetResult (){
+		Score sc = new Score ();
+		sc.resetResult();
+		
+		assertEquals(0,sc.getTotalScore());
 
+	}
 
 }
 
@@ -73,6 +96,5 @@ class FakeScore extends Score{
 	public void setBottomTotalScore (int value){
 		totalBottomScore = value;
 	}
-	
 	
 }

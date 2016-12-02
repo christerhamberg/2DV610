@@ -1,15 +1,11 @@
 package model.rules;
 
-public class RuleYatzy implements RuleInterface{
+public class RuleYatzy extends RuleAbstractCommon implements RuleInterface{
 	
 	private final int FIXED_SCORE = 50;
 	
-	private String ruleDescription = "Yatzy";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleYatzy (){
+		super ("Yatzy");
 	}
 
 	@Override
@@ -31,16 +27,6 @@ public class RuleYatzy implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

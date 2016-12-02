@@ -1,13 +1,9 @@
 package model.rules;
 
-public class RuleFullHouse implements RuleInterface{
+public class RuleFullHouse extends RuleAbstractCommon implements RuleInterface{
 	
-	private String ruleDescription = "Full House";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleFullHouse(){
+		super("Full House");
 	}
 
 	@Override
@@ -54,16 +50,6 @@ public class RuleFullHouse implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

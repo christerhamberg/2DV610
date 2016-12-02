@@ -1,15 +1,11 @@
 package model.rules;
 
-public class RuleSmallStraight implements RuleInterface{
+public class RuleSmallStraight extends RuleAbstractCommon implements RuleInterface{
 
 	private final int FIXED_SCORE = 15;
 	
-	private String ruleDescription = "Small Straight";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleSmallStraight (){
+		super ("Small Straight");
 	}
 
 	@Override
@@ -46,15 +42,5 @@ public class RuleSmallStraight implements RuleInterface{
 		return result;
 		
 	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
-	}
-
+	
 }

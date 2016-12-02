@@ -1,13 +1,9 @@
 package model.rules;
 
-public class RuleThreeOfAKind implements RuleInterface{
+public class RuleThreeOfAKind extends RuleAbstractCommon implements RuleInterface{
 
-	private String ruleDescription = "Three of a kind";
-	private int result = 0;
-	
-	@Override
-	public String getRuleDescription() {
-		return ruleDescription;
+	public RuleThreeOfAKind (){
+		super ("Three of a kind");
 	}
 
 	@Override
@@ -34,16 +30,6 @@ public class RuleThreeOfAKind implements RuleInterface{
 		result = tempResult;
 		return result;
 		
-	}
-
-	@Override
-	public int getResult() {
-		return result;
-	}
-
-	@Override
-	public void resetResult() {
-		result = 0;
 	}
 
 }

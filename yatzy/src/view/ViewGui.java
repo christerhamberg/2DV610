@@ -310,7 +310,7 @@ public class ViewGui extends JFrame{
 				Dice currentDice = dice.get(loopMe);
 				currentDice.unfreezeDice();
 		
-			}
+			}			
 			
 		}
 		if (currentState == 1){
@@ -336,12 +336,6 @@ public class ViewGui extends JFrame{
 			if (currentPlayer == 0){
 
 				if (state.getTurn()<6) jtSum1Pl1b.setText(""+player.get(currentPlayer).getTotalBottomScore());
-				else if (state.getTurn() == 6){
-					if (player.get(currentPlayer).isBonus () == true){
-						jtBonusPl1b.setText("50");
-					}
-					else jtBonusPl1b.setText("0");
-				}
 				
 				jtScorePl1.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				jtTotalSum1Pl1b.setText(""+ +player.get(currentPlayer).getTotalScore());
@@ -352,12 +346,6 @@ public class ViewGui extends JFrame{
 			else {
 
 				if (state.getTurn()<6) jtSum1Pl2b.setText(""+player.get(currentPlayer).getTotalBottomScore());
-				else if (state.getTurn() == 6){
-					if (player.get(currentPlayer).isBonus () == true){
-						jtBonusPl2b.setText("50");
-					}
-					else jtBonusPl2b.setText("0");
-				}
 				
 				jtScorePl2.get(state.getTurn()).setText(""+player.get(currentPlayer).getResult(state.getTurn()));
 				jtTotalSum1Pl2b.setText(""+ +player.get(currentPlayer).getTotalScore());
@@ -368,6 +356,22 @@ public class ViewGui extends JFrame{
 
 			}
 			
+			// Check for Bonus
+            if (state.getTurn() == 6 && currentPlayer == 0){
+				
+				if (player.get(0).isBonus () == true){
+					jtBonusPl1b.setText("50");
+				}
+				else jtBonusPl1b.setText("0");
+				
+				if (player.get(1).isBonus () == true){
+					jtBonusPl2b.setText("50");
+				}
+				else jtBonusPl2b.setText("0");
+				
+			}
+			
+            // Check game end
 			if (state.getTurn() == 15){
 				
 				// Show Winner
